@@ -13,6 +13,7 @@ print("after dropping renewed + duplicates:", df.shape)
 
 # 2. Drop accessories that slipped into headphones (ear pads, tips, stands...)
 ACCESSORY = re.compile(
+    r"cleaning\s+kit|cleaning\s+tool|cleaner|beanie|knit\s+cap|\bhat\b|"
     r"ear\s?pads?|earpads?|ear\s?cushions?|replacement\s+(?:ear|cushion|pad|cable|tips?|cord)|"
     r"ear\s?tips?|eartips?|headphone\s+(?:stand|hanger|holder)|headset\s+stand|splitter|"
     r"(?:hard|carrying|protective|silicone|travel)\s+case\s+(?:for|compatible)|case\s+cover|skin\s+cover",
