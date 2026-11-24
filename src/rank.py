@@ -14,6 +14,14 @@ WEIGHTS = {
     "B": {"relevance": 0.30, "spec_fit": 0.25, "priority_fit": 0.15, "quality": 0.30, "popularity": 0.00},
 }
 GPU = re.compile(r"nvidia|geforce|rtx|gtx|radeon rx|radeon pro|quadro|arc a\d", re.I)
+KEYWORDS = {
+    "durability": re.compile(r"waterproof|sweat[\s-]?proof|sweat[\s-]?resistant|\bipx?[4-8]\b|\bip[4-6]\d\b", re.I),
+    "comfort": re.compile(r"comfortabl|ergonomic|memory[\s-]foam|cushion|lightweight|light[\s-]?weight", re.I),
+    "microphone": re.compile(r"microphone|\bmics?\b|\benc\b|\bcvc\b|clear calls?|call quality", re.I),
+    "bass": re.compile(r"\bbass\b", re.I),
+    "sound_quality": re.compile(r"hi-?fi|hi-?res|high[\s-]?resolution|audiophile|lossless|planar|\baptx\b|\bldac\b|studio", re.I),
+    "display": re.compile(r"oled|amoled|qhd|\b4k\b|\b2k\b|retina|\bips\b|\b120hz\b|\b144hz\b|\b165hz\b", re.I),
+}
 BATTERY = [
     re.compile(r"(\d{1,2})\s*(?:\+\s*)?(?:hours?|hrs?|h)\b\s*(?:of\s*)?(?:battery|playtime|play time|playback|talk time)", re.I),
     re.compile(r"battery(?:\s+life)?\s*(?:of|up to|:)?\s*(?:up to\s*)?(\d{1,2})\s*(?:hours?|hrs?|h)\b", re.I),
@@ -127,6 +135,11 @@ def priority_fit(r, priorities, cat):
                 parts.append(0.3)  # unknown: no battery field in the catalog yet
         elif p == "noise_cancelling":
             parts.append(1.0 if truthy(r["has_anc"]) else 0.0)
+        elif p in KEYWORDS:
+            hit = KEYWORDS[p].search(f"{r['title']} {r['search_text']}")
+            parts.append(1.0 if hit else 0.25)
+            if hit:
+                notes.append(f"mentions {hit.group(0).lower()}")
     return (float(np.mean(parts)) if parts else None), notes
 
 

@@ -1,0 +1,21 @@
+
+Intent: {'category': 'laptops', 'max_price': 1000.0, 'use_cases': ['student', 'video_editing'], 'priorities': ['portability', 'battery', 'performance'], 'constraints': {'min_ram_gb': 16, 'min_storage_gb': 512}}
+
+[RANKED, ranker A, brand cap 3] 'lightweight laptop for MBA, occasional video editing, long battery life, under $1000'
+
+ 1. $  530  HP          20GB/1000GB/15.6in/3.7lb     0.73  HP 15.6 Laptop (Latest Model), Intel Core i3-1115G4, 20
+      why: 20GB RAM meets your 16GB need | 1000GB storage is enough | rated 4.2 by 16 buyers
+ 2. $ 1000  ASUS        16GB/2000GB/14in/3.0lb       0.72  ASUS ZenBook Pro 14 OLED UM3402 14" QHD+ Touchscreen (A
+      why: 16GB RAM meets your 16GB need | 2000GB storage is enough | light at 2.98 lb | lists 19 hrs battery | rated 4.8 by 7 buyers
+ 3. $  900  ASUS        16GB/1000GB/14in/3.0lb       0.67  ASUS ZenBook 14 OLED UM3402 14" QHD+ Touchscreen (AMD R
+      why: 16GB RAM meets your 16GB need | 1000GB storage is enough | light at 2.98 lb | lists 19 hrs battery | rated 4.1 by 40 buyers
+ 4. $  629  HP          16GB/512GB/15.6in/3.8lb      0.67  HP 2022 Newest 15.6’’ HD Touchscreen Laptop, Quad Core 
+      why: 16GB RAM meets your 16GB need | 512GB storage is enough | lists 11 hrs battery | rated 4.3 by 89 buyers
+ 5. $  599  HP          16GB/512GB/15.6in/5.6lb      0.67  HP 15.6" Micro-Edge HD Laptop, Intel Core i3-1115G4 up 
+      why: 16GB RAM meets your 16GB need | 512GB storage is enough | lists 11 hrs battery | rated 4.2 by 16 buyers
+ 6. $  599  Lenovo      20GB/1000GB/15.6in/3.8lb     0.65  Lenovo Ideapad 3i 15.6" FHD Laptop for Bussiness and St
+      why: 20GB RAM meets your 16GB need | 1000GB storage is enough | rated 3.3 by 6 buyers
+ 7. $  599  Dell        16GB/1000GB/15in/nanlb       0.65  Dell Inspiron 3000 Business Laptop, 15.6''FHD Display, 
+      why: 16GB RAM meets your 16GB need | 1000GB storage is enough | rated 4.0 by 8 buyers
+ 8. $  750  Microsoft   8GB/512GB/13.5in/2.9lb       0.63  Microsoft Surface Laptop 4 13.5” Touch-Screen – Intel C
+      why: 8GB RAM (you wanted 16GB) | 512GB storage is enough | light at 2.89 lb | rated 4.6 by 348 buyers

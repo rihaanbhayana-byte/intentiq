@@ -1,0 +1,13 @@
+
+Intent: {'category': 'laptops', 'max_price': 1000.0, 'use_cases': ['student', 'video_editing'], 'priorities': ['portability', 'battery', 'performance'], 'constraints': {'min_ram_gb': 16, 'min_storage_gb': 512}}
+
+[RAW retrieval order, no re-ranking] 'lightweight laptop for MBA, occasional video editing, long battery life, under $1000'
+
+ 1. $  214  HP          4GB/64GB/14in/3.2lb            -   HP Chromebook 14 Laptop, Intel Celeron N4120, 4 GB RAM,
+ 2. $  260  HP          4GB/64GB/14in/3.2lb            -   HP 14 Laptop, AMD 3020e, 4 GB RAM, 64 GB eMMC Storage, 
+ 3. $  219  Tulasi      8GB/128GB/14.1in/2.9lb         -   Tulasi Laptop, 8GB RAM 128GB SSD, Intel Celeron J4005 L
+ 4. $  389  HP          8GB/256GB/15.6in/3.7lb         -   2021 HP 15.6" HD LED Laptop PC, Intel Core i3-1005G1 Pr
+ 5. $  299  Lenovo      4GB/128GB/15.6in/7.0lb         -   Lenovo Newest Ideapad 15.6" Laptop, 15.6 inch HD IPS Di
+ 6. $  229  HP          4GB/32GB/11.6in/2.4lb          -   2021 HP Chromebook 11.6" HD (1366 x 768) Laptop, 8-Core
+ 7. $  530  HP          20GB/1000GB/15.6in/3.7lb       -   HP 15.6 Laptop (Latest Model), Intel Core i3-1115G4, 20
+ 8. $  349  ASUS        8GB/64GB/14in/5.2lb            -   ASUS Chromebook 2-in-1 Convertible Business Laptop, 14"
