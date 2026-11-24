@@ -200,4 +200,48 @@ def stats():
     for ranker, event, n in rows:
         out.setdefault(ranker, {})[event] = n
     return out
-    
+
+
+# ---------- Step 7: the chat agent ----------
+from agent import Agent  # noqa: E402
+
+agent = Agent(searcher, CAT_MEAN)
+
+
+class ChatReq(BaseModel):
+    message: str
+    session_id: str
+    reset: bool = False
+
+
+@app.get("/agent")
+def agent_page():
+    return FileResponse(ROOT / "app" / "agent.html")
+
+
+@app.post("/chat")
+def chat(req: ChatReq):
+    msg = req.message.strip()
+    if not 1 <= len(msg) <= 500:
+        raise HTTPException(400, "Message must be 1-500 characters.")
+    ranker = assign_ranker(req.session_id)
+    out = agent.respond(req.session_id, msg, ranker=ranker, reset=req.reset)
+    df = out.pop("results")
+    cards = [card(r) for _, r in df.iterrows()] if df is not None else []
+    now, sid, cat = time.time(), req.session_id, out.get("category") or ""
+    rows = [(now, sid, ranker, "chat_" + out["mode"], msg[:300], cat, "", None)]
+    if out["clarify"]:
+        rows.append((now, sid, ranker, "clarify", msg[:300], cat, "", None))
+    if out["guard"]:
+        rows.append((now, sid, ranker, "guard_triggered", msg[:300], cat, "", None))
+    if out["fallback_reason"]:
+        rows.append((now, sid, ranker, "llm_fallback", msg[:300], cat, "", None))
+    for pos, c in enumerate(cards, 1):
+        rows.append((now, sid, ranker, "impression", msg[:300], cat, c["product_id"], pos))
+    log_events(rows)
+    intent = out.get("intent") or None
+    if intent:
+        intent = {k: v for k, v in intent.items() if v not in (None, [], {})}
+    return {"reply": out["reply"], "clarify": out["clarify"], "mode": out["mode"], "provider": out["provider"],
+            "fallback_reason": bool(out["fallback_reason"]), "guard": out["guard"], "category": out["category"],
+            "intent": intent, "results": cards, "ranker": ranker, "latency_ms": out["latency_ms"]}

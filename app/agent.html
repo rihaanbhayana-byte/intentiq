@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IntentIQ · Chat</title>
+<style>
+  :root { --bg:#fafaf9; --card:#fff; --text:#1c1917; --muted:#78716c; --line:#e7e5e4; --accent:#4f46e5; --good:#15803d; --bubble:#eef2ff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0c0a09; --card:#1c1917; --text:#fafaf9; --muted:#a8a29e; --line:#292524; --accent:#818cf8; --good:#4ade80; --bubble:#1e1b4b; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:24px 16px 140px; }
+  header { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  h1 { margin:0; font-size:26px; }
+  header a, .ghost { color:var(--muted); font-size:14px; background:none; border:0; cursor:pointer; text-decoration:underline; font:inherit; }
+  .sub { color:var(--muted); margin:4px 0 16px; }
+  .msg { margin:14px 0; display:flex; }
+  .msg.user { justify-content:flex-end; }
+  .bubble { max-width:85%; padding:10px 14px; border-radius:14px; white-space:pre-wrap; }
+  .user .bubble { background:var(--accent); color:#fff; border-bottom-right-radius:4px; }
+  .bot .bubble { background:var(--card); border:1px solid var(--line); border-bottom-left-radius:4px; }
+  .bot.clarify .bubble { background:var(--bubble); }
+  .meta { color:var(--muted); font-size:12px; margin-top:4px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 0; }
+  .chip { background:color-mix(in srgb, var(--accent) 14%, transparent); color:var(--accent); border-radius:999px; padding:1px 9px; font-size:12px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:10px; margin-top:10px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:4px; }
+  .card img { width:100%; height:110px; object-fit:contain; background:#fff; border-radius:8px; }
+  .title { font-weight:600; font-size:14px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .small { color:var(--muted); font-size:12px; }
+  .why { color:var(--good); font-size:12px; }
+  .actions { display:flex; gap:6px; flex-wrap:wrap; margin-top:auto; padding-top:6px; }
+  .actions button, .actions a { border:1px solid var(--line); background:transparent; color:var(--text); border-radius:8px; padding:2px 8px; font-size:12px; text-decoration:none; cursor:pointer; }
+  .actions button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .examples { display:flex; flex-wrap:wrap; gap:6px; }
+  .ex { border:1px solid var(--line); background:var(--card); color:var(--muted); border-radius:999px; padding:4px 10px; font-size:13px; cursor:pointer; }
+  form { position:fixed; left:0; right:0; bottom:0; background:var(--bg); border-top:1px solid var(--line); padding:12px 16px; }
+  .row { max-width:860px; margin:0 auto; display:flex; gap:8px; }
+  input { flex:1; padding:12px 14px; font-size:16px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--text); }
+  .go { padding:12px 18px; border:0; border-radius:10px; background:var(--accent); color:#fff; font-weight:600; cursor:pointer; }
+  .go:disabled { opacity:.5; cursor:default; }
+  footer { max-width:860px; margin:6px auto 0; color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<main>
+  <header><h1>IntentIQ</h1><span><a href="/">Search page</a> · <button class="ghost" id="reset" type="button">New chat</button></span></header>
+  <p class="sub">Tell me what you need, then refine: "cheaper", "lighter", "no HP". Prices are from a 2023 Amazon dataset.</p>
+  <div class="examples" id="examples"></div>
+  <div id="log"></div>
+</main>
+<form id="f">
+  <div class="row">
+    <input id="q" maxlength="500" autocomplete="off" autofocus placeholder="e.g. laptop for my MBA with some video editing, under $1000">
+    <button class="go" id="send" type="submit">Send</button>
+  </div>
+  <footer id="foot">Ranker – · ready</footer>
+</form>
+<script>
+const $ = (s) => document.querySelector(s);
+const sid = (() => {
+  try { let s = localStorage.getItem("sid"); if (!s) { s = crypto.randomUUID(); localStorage.setItem("sid", s); } return s; }
+  catch (e) { return crypto.randomUUID(); }
+})();
+let reset = false, lastUser = "";
+const EXAMPLES = ["something good for my dad", "lightweight laptop for my MBA, occasional video editing, under $1000",
+                  "something to block noise on long flights", "wireless earbuds for the gym under $50"];
+
+// Builds DOM nodes with textContent only, so product text can never inject HTML.
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k != null) n.append(k.nodeType ? k : document.createTextNode(String(k)));
+  return n;
+}
+function send(event, r, pos) {
+  fetch("/feedback", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: sid, event, query: lastUser, category: r.category || "", product_id: r.product_id, position: pos }) }).catch(() => {});
+}
+const CONS = { min_ram_gb: (v) => `${v}GB+ RAM`, min_storage_gb: (v) => `${v}GB+ storage`, needs_gpu: () => "dedicated GPU",
+  max_weight_lb: (v) => `under ${v} lb`, screen_in: (v) => `${v}" screen`, anc: () => "noise cancelling",
+  wireless: () => "wireless", wired: () => "wired", form_factor: (v) => v };
+function chips(intent) {
+  if (!intent) return null;
+  const out = [el("span", { class: "chip" }, intent.category)];
+  if (intent.max_price) out.push(el("span", { class: "chip" }, `under $${Math.round(intent.max_price).toLocaleString()}`));
+  for (const [k, v] of Object.entries(intent.constraints || {})) if (CONS[k] && v) out.push(el("span", { class: "chip" }, CONS[k](v)));
+  for (const b of intent.exclude_brands || []) out.push(el("span", { class: "chip" }, `no ${b}`));
+  return el("div", { class: "chips" }, out);
+}
+function card(r, pos) {
+  const up = el("button", {}, "👍"), down = el("button", {}, "👎");
+  const vote = (btn, ev) => () => { send(ev, r, pos); up.disabled = down.disabled = true; btn.classList.add("on"); };
+  up.addEventListener("click", vote(up, "up")); down.addEventListener("click", vote(down, "down"));
+  const link = el("a", { href: `https://www.amazon.com/dp/${encodeURIComponent(r.product_id)}`, target: "_blank", rel: "noopener noreferrer" }, "Listing ↗");
+  link.addEventListener("click", () => send("click", r, pos));
+  const img = el("img", { alt: "", loading: "lazy", referrerpolicy: "no-referrer" });
+  if (r.image_url) img.src = r.image_url; else img.style.display = "none";
+  img.addEventListener("error", () => { img.style.display = "none"; });
+  return el("div", { class: "card" }, img,
+    el("div", { class: "small" }, `[${pos}] · $${Math.round(r.price)} · ${r.brand} · ★ ${(r.avg_rating ?? 0).toFixed(1)} (${(r.num_ratings ?? 0).toLocaleString()})`),
+    el("div", { class: "title" }, r.title),
+    r.why ? el("div", { class: "why" }, r.why.replaceAll(" | ", " · ")) : null,
+    el("div", { class: "actions" }, up, down, link));
+}
+function add(role, text, extra = {}) {
+  const meta = [];
+  if (extra.mode) meta.push(extra.mode === "llm" ? `AI (${extra.provider})` : "rule-based");
+  if (extra.latency_ms != null) meta.push(`${Math.round(extra.latency_ms)} ms`);
+  if (extra.guard) meta.push("safety check replaced the AI answer");
+  const box = el("div", {}, el("div", { class: "bubble" }, text),
+    role === "bot" ? chips(extra.intent) : null,
+    meta.length ? el("div", { class: "meta" }, meta.join(" · ")) : null,
+    extra.results && extra.results.length ? el("div", { class: "cards" }, extra.results.map((r, i) => card(r, i + 1))) : null);
+  const m = el("div", { class: `msg ${role}${extra.clarify ? " clarify" : ""}` }, box);
+  $("#log").append(m);
+  m.scrollIntoView({ behavior: "smooth", block: "end" });
+}
+async function ask(text) {
+  text = text.trim();
+  if (!text) return;
+  lastUser = text; $("#q").value = ""; $("#send").disabled = true; $("#examples").replaceChildren();
+  add("user", text);
+  const wait = el("div", { class: "msg bot" }, el("div", { class: "bubble" }, "Thinking…"));
+  $("#log").append(wait);
+  try {
+    const r = await fetch("/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text, session_id: sid, reset }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || r.statusText);
+    reset = false; wait.remove();
+    add("bot", d.reply, d);
+    $("#foot").textContent = `Ranker ${d.ranker} · ${d.mode === "llm" ? "AI: " + d.provider : "rule-based" + (d.fallback_reason ? " (AI unavailable)" : "")}`;
+  } catch (e) { wait.remove(); add("bot", "Something went wrong: " + e.message); }
+  finally { $("#send").disabled = false; $("#q").focus(); }
+}
+$("#f").addEventListener("submit", (e) => { e.preventDefault(); ask($("#q").value); });
+$("#reset").addEventListener("click", () => { reset = true; $("#log").replaceChildren(); showExamples(); $("#q").focus(); });
+function showExamples() { $("#examples").replaceChildren(...EXAMPLES.map((t) => el("button", { class: "ex", type: "button", onclick: () => ask(t) }, t))); }
+showExamples();
+</script>
+</body>
+</html>
