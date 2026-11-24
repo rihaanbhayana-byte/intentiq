@@ -1,0 +1,14 @@
+W1124 16:22:05.628000 2908 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10910.80it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[hybrid] 'lightweight laptop for MBA, occasional video editing, long battery life' in laptops, max_price=1000.0
+
+ 1. $   214  HP           4GB/64GB/14in          HP Chromebook 14 Laptop, Intel Celeron N4120, 4 GB RAM, 64 G
+ 2. $   389  HP           8GB/256GB/15.6in       2021 HP 15.6" HD LED Laptop PC, Intel Core i3-1005G1 Process
+ 3. $   219  Tulasi       8GB/128GB/14.1in       Tulasi Laptop, 8GB RAM 128GB SSD, Intel Celeron J4005 Laptop
+ 4. $   260  HP           4GB/64GB/14in          HP 14 Laptop, AMD 3020e, 4 GB RAM, 64 GB eMMC Storage, 14-in
+ 5. $   229  HP           4GB/32GB/11.6in        2021 HP Chromebook 11.6" HD (1366 x 768) Laptop, 8-Core Medi
+ 6. $   299  Lenovo       4GB/128GB/15.6in       Lenovo Newest Ideapad 15.6" Laptop, 15.6 inch HD IPS Display
+ 7. $   619  HP           8GB/512GB/15.6in       2021 HP 15.6'' FHD IPS Thin and Light Laptop, Intel Core i5-
+ 8. $   349  ASUS         8GB/64GB/14in          ASUS Chromebook 2-in-1 Convertible Business Laptop, 14" FHD 

@@ -1,0 +1,147 @@
+# Step 6 golden set: 15 laptop + 15 headphone queries with relevance criteria.
+# must: a product failing any of these is not relevant (grade 0).
+# nice: meeting all of these too makes it highly relevant (grade 2); otherwise grade 1.
+# Criteria: max_price, min_ram_gb, min_storage_gb, max_weight_lb, min_screen_in, max_screen_in,
+#           min_rating, min_num_ratings, needs_gpu, anc, wireless, wired, form_factor,
+#           title_regex, text_regex (a string or a list that must ALL match), not_brand.
+# Hand labels in eval/labels.csv (made with src/label.py) replace these for any query you label.
+
+- id: L01
+  category: laptops
+  query: "lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
+  must: {max_price: 1000, min_ram_gb: 16, min_storage_gb: 512}
+  nice: {max_weight_lb: 4.0}
+- id: L02
+  category: laptops
+  query: "gaming laptop with 16GB RAM under 1k"
+  must: {max_price: 1000, min_ram_gb: 16, needs_gpu: true}
+  nice: {min_rating: 4.0}
+- id: L03
+  category: laptops
+  query: "cheap laptop for college under $400"
+  must: {max_price: 400, min_ram_gb: 8}
+  nice: {max_weight_lb: 4.0}
+- id: L04
+  category: laptops
+  query: "ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
+  must: {max_price: 900, max_weight_lb: 3.5, min_storage_gb: 512}
+  nice: {min_screen_in: 13.3, max_screen_in: 14.5}
+- id: L05
+  category: laptops
+  query: "laptop for office work and excel under $600"
+  must: {max_price: 600, min_ram_gb: 8}
+  nice: {min_rating: 4.0}
+- id: L06
+  category: laptops
+  query: "Legion 5"
+  must: {title_regex: "legion\\s*5"}
+- id: L07
+  category: laptops
+  query: "computer for a student that lasts all day"
+  must: {min_ram_gb: 8}
+  nice: {max_weight_lb: 4.0, text_regex: "(1[0-9]|[89])\\s*(hours?|hrs?)"}
+- id: L08
+  category: laptops
+  query: "macbook air"
+  must: {title_regex: "macbook\\s*air"}
+- id: L09
+  category: laptops
+  query: "laptop for video editing with 32GB RAM"
+  must: {min_ram_gb: 32}
+  nice: {min_storage_gb: 1000}
+- id: L10
+  category: laptops
+  query: "chromebook for kids under $300"
+  must: {title_regex: "chromebook", max_price: 300}
+- id: L11
+  category: laptops
+  query: "17 inch laptop with a big screen under $1200"
+  must: {min_screen_in: 16.9, max_price: 1200}
+- id: L12
+  category: laptops
+  query: "2-in-1 touchscreen laptop for taking notes"
+  must: {text_regex: "2-in-1|2 in 1|convertible|x360|flip|yoga"}
+  nice: {min_rating: 4.0}
+- id: L13
+  category: laptops
+  query: "powerful laptop for programming under $1500"
+  must: {min_ram_gb: 16, max_price: 1500}
+  nice: {min_storage_gb: 512}
+- id: L14
+  category: laptops
+  query: "thin and light laptop for travel"
+  must: {max_weight_lb: 3.5}
+  nice: {min_rating: 4.0}
+- id: L15
+  category: laptops
+  query: "budget gaming laptop with RTX under $800"
+  must: {needs_gpu: true, max_price: 800}
+
+- id: H01
+  category: headphones
+  query: "noise cancelling headphones for flights and commuting"
+  must: {anc: true}
+  nice: {min_rating: 4.2}
+- id: H02
+  category: headphones
+  query: "wireless earbuds for the gym under $50"
+  must: {wireless: true, form_factor: in-ear, max_price: 50}
+  nice: {text_regex: "waterproof|sweat|ipx"}
+- id: H03
+  category: headphones
+  query: "studio headphones wired over-ear under $200"
+  must: {wired: true, form_factor: over-ear, max_price: 200}
+- id: H04
+  category: headphones
+  query: "airpods pro"
+  must: {title_regex: "airpods\\s*pro"}
+- id: H05
+  category: headphones
+  query: "headset with microphone for zoom calls under $80"
+  must: {max_price: 80, text_regex: "mic|microphone"}
+  nice: {min_rating: 4.0}
+- id: H06
+  category: headphones
+  query: "gaming headset with mic"
+  must: {text_regex: ["gaming", "mic|microphone"]}
+- id: H07
+  category: headphones
+  query: "sleep earbuds for side sleepers"
+  must: {form_factor: in-ear}
+  nice: {text_regex: "sleep"}
+- id: H08
+  category: headphones
+  query: "bass heavy headphones under $100"
+  must: {max_price: 100}
+  nice: {text_regex: "bass"}
+- id: H09
+  category: headphones
+  query: "wireless over-ear headphones with long battery"
+  must: {wireless: true, form_factor: over-ear}
+  nice: {text_regex: "([3-9]\\d)\\s*(h|hrs?|hours?)\\b"}
+- id: H10
+  category: headphones
+  query: "Sony WH-1000XM4"
+  must: {title_regex: "1000\\s*xm4"}
+- id: H11
+  category: headphones
+  query: "cheap wired earbuds under $20"
+  must: {wired: true, form_factor: in-ear, max_price: 20}
+- id: H12
+  category: headphones
+  query: "noise cancelling earbuds under $100"
+  must: {anc: true, form_factor: in-ear, max_price: 100}
+- id: H13
+  category: headphones
+  query: "waterproof earbuds for swimming"
+  must: {form_factor: in-ear, text_regex: "ipx8|ipx7|waterproof|swim"}
+- id: H14
+  category: headphones
+  query: "kids headphones with volume limit"
+  must: {text_regex: "kid|child"}
+  nice: {text_regex: "volume\\s*limit|85\\s*db"}
+- id: H15
+  category: headphones
+  query: "bluetooth headphones for running that stay in"
+  must: {wireless: true}
+  nice: {text_regex: "ear\\s*hooks?|secure fit|sport|running"}

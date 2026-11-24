@@ -1,0 +1,66 @@
+# Step 7 agent test set: multi-turn conversations with what must be true after each turn.
+# Checks: clarify (true/false), category, max_price, max_price_below, constraints (subset of parsed
+#         constraints), no_brand, min_results, results_meet (criteria every shown product must meet,
+#         same names as golden.yaml), top3_meet (at least 2 of the top 3 must meet these).
+
+- id: A01-vague-then-answer
+  turns:
+    - say: "something good for my dad"
+      expect: {clarify: true}
+    - say: "headphones, he watches tv and hates wires"
+      expect: {clarify: false, category: headphones, constraints: {wireless: true}, min_results: 3}
+
+- id: A02-mba-refine
+  turns:
+    - say: "lightweight laptop for my MBA, occasional video editing, under $1000"
+      expect: {category: laptops, max_price: 1000, constraints: {min_ram_gb: 16}, results_meet: {max_price: 1000}}
+    - say: "cheaper"
+      expect: {max_price_below: 1000}
+    - say: "no HP"
+      expect: {no_brand: hp, constraints: {min_ram_gb: 16}}
+
+- id: A03-gym-earbuds
+  turns:
+    - say: "wireless earbuds for the gym under $50"
+      expect: {category: headphones, results_meet: {max_price: 50}, top3_meet: {wireless: true, form_factor: in-ear}}
+
+- id: A04-flights
+  turns:
+    - say: "something to block noise on long flights"
+      expect: {category: headphones, constraints: {anc: true}, top3_meet: {anc: true}}
+
+- id: A05-gaming-then-budget
+  turns:
+    - say: "gaming laptop"
+      expect: {category: laptops, constraints: {needs_gpu: true}}
+    - say: "keep it under $900"
+      expect: {max_price: 900, constraints: {needs_gpu: true}, results_meet: {max_price: 900}}
+
+- id: A06-implicit-category
+  turns:
+    - say: "computer for a student that lasts all day"
+      expect: {category: laptops}
+
+- id: A07-switch-category
+  turns:
+    - say: "laptop for office work under $600"
+      expect: {category: laptops, max_price: 600}
+    - say: "actually I need noise cancelling headphones instead"
+      expect: {category: headphones, constraints: {anc: true}}
+
+- id: A08-studio
+  turns:
+    - say: "headphones for mixing music in my home studio, wired"
+      expect: {category: headphones, constraints: {wired: true}, top3_meet: {wired: true}}
+
+- id: A09-only-one-question
+  turns:
+    - say: "I need a gift"
+      expect: {clarify: true}
+    - say: "not sure, something under $100"
+      expect: {clarify: false, max_price: 100}
+
+- id: A10-exclude-brand-first-turn
+  turns:
+    - say: "noise cancelling headphones but not Bose"
+      expect: {category: headphones, no_brand: bose, constraints: {anc: true}}
