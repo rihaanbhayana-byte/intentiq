@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IntentIQ</title>
+<style>
+  :root { --bg:#fafaf9; --card:#fff; --text:#1c1917; --muted:#78716c; --line:#e7e5e4; --accent:#4f46e5; --good:#15803d; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0c0a09; --card:#1c1917; --text:#fafaf9; --muted:#a8a29e; --line:#292524; --accent:#818cf8; --good:#4ade80; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 16px 120px; }
+  h1 { margin:0 0 4px; font-size:28px; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  form { display:flex; gap:8px; }
+  input[type=text] { flex:1; padding:12px 14px; font-size:16px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--text); }
+  button { cursor:pointer; font:inherit; }
+  .go { padding:12px 18px; border:0; border-radius:10px; background:var(--accent); color:#fff; font-weight:600; }
+  .go:disabled { opacity:.4; cursor:default; }
+  .examples { margin:10px 0 0; display:flex; flex-wrap:wrap; gap:6px; }
+  .ex { border:1px solid var(--line); background:var(--card); color:var(--muted); border-radius:999px; padding:4px 10px; font-size:13px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin:20px 0 4px; align-items:center; }
+  .chip { background:color-mix(in srgb, var(--accent) 14%, transparent); color:var(--accent); border-radius:999px; padding:2px 10px; font-size:13px; font-weight:500; }
+  .chip.soft { background:transparent; border:1px dashed var(--line); color:var(--muted); }
+  .card { display:grid; grid-template-columns:96px 1fr; gap:14px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; margin-top:12px; }
+  .card img { width:96px; height:96px; object-fit:contain; background:#fff; border-radius:8px; }
+  .rank { color:var(--muted); font-size:13px; }
+  .title { font-weight:600; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .meta { color:var(--muted); font-size:13px; margin-top:2px; }
+  .price { color:var(--text); font-weight:700; }
+  .why { margin-top:6px; font-size:13px; color:var(--good); }
+  .actions { display:flex; gap:8px; align-items:center; margin-top:8px; font-size:13px; flex-wrap:wrap; }
+  .actions button, .actions a { border:1px solid var(--line); background:transparent; color:var(--text); border-radius:8px; padding:3px 10px; text-decoration:none; }
+  .actions button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  label.cmp { display:flex; gap:4px; align-items:center; color:var(--muted); }
+  .note { color:var(--muted); margin-top:18px; }
+  #bar { position:fixed; left:0; right:0; bottom:0; padding:12px 16px; background:var(--card); border-top:1px solid var(--line); display:none; justify-content:center; gap:12px; align-items:center; }
+  dialog { max-width:900px; width:94vw; border:1px solid var(--line); border-radius:12px; background:var(--card); color:var(--text); padding:20px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-weight:500; width:130px; }
+  td.h { font-weight:600; }
+  footer { margin-top:28px; color:var(--muted); font-size:12px; }
+  @media (max-width:520px) { .card { grid-template-columns:72px 1fr; } .card img { width:72px; height:72px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>IntentIQ</h1>
+  <p class="sub">Describe what you need. Get ranked picks, with reasons.</p>
+  <form id="f">
+    <input id="q" type="text" maxlength="300" autocomplete="off" autofocus
+           placeholder="e.g. laptop for my MBA, light video editing, good battery, under $1000">
+    <button class="go" type="submit">Search</button>
+  </form>
+  <div class="examples" id="examples"></div>
+  <div id="out"></div>
+  <footer id="foot"></footer>
+</main>
+<div id="bar"><span id="barText"></span><button class="go" id="cmpBtn">Compare</button><button class="ex" id="cmpClear">Clear</button></div>
+<dialog id="dlg"></dialog>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const sid = (() => {
+  try { let s = localStorage.getItem("sid"); if (!s) { s = crypto.randomUUID(); localStorage.setItem("sid", s); } return s; }
+  catch (e) { return crypto.randomUUID(); }
+})();
+const EXAMPLES = [
+  "I need a laptop for my MBA, occasional video editing, good battery life, under $1,000",
+  "noise cancelling headphones for flights and commuting",
+  "wireless earbuds for the gym under $50",
+  "gaming laptop with 16GB RAM under 1k",
+];
+const selected = new Map(); // product_id -> category
+let lastQuery = "", lastCategory = null;
+
+// Builds DOM nodes with textContent only, so product text can never inject HTML.
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k != null) n.append(k.nodeType ? k : document.createTextNode(String(k)));
+  return n;
+}
+async function post(path, body) {
+  const r = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+  return r.json();
+}
+function send(event, r, pos) {
+  post("/feedback", { session_id: sid, event, query: lastQuery, category: r.category || lastCategory || "",
+                      product_id: r.product_id, position: pos }).catch(() => {});
+}
+
+const CONS = {
+  min_ram_gb: (v) => `${v}GB+ RAM`, min_storage_gb: (v) => `${v}GB+ storage`, needs_gpu: () => "dedicated GPU",
+  max_weight_lb: (v) => `under ${v} lb`, screen_in: (v) => `${v}" screen`, anc: () => "noise cancelling",
+  wireless: () => "wireless", wired: () => "wired", form_factor: (v) => v,
+};
+function chips(intent, cat) {
+  const out = [el("span", { class: "chip" }, cat)];
+  if (intent.max_price) out.push(el("span", { class: "chip" }, `under $${intent.max_price.toLocaleString()}`));
+  for (const [k, v] of Object.entries(intent.constraints || {})) if (CONS[k]) out.push(el("span", { class: "chip" }, CONS[k](v)));
+  for (const p of intent.priorities || []) out.push(el("span", { class: "chip soft" }, p.replace("_", " ")));
+  return el("div", { class: "chips" }, el("span", { class: "meta" }, "Understood:"), out);
+}
+function fmtSpecs(specs) {
+  return Object.entries(specs).filter(([, v]) => v !== null && v !== "").slice(0, 5)
+    .map(([k, v]) => (typeof v === "boolean" ? (v ? k : null) : `${k}: ${String(v).slice(0, 28)}`))
+    .filter(Boolean).join(" · ");
+}
+
+function card(r, pos) {
+  const cb = el("input", { type: "checkbox" });
+  cb.checked = selected.has(r.product_id);
+  cb.addEventListener("change", () => toggle(r, cb));
+  const up = el("button", {}, "👍 Helpful"), down = el("button", {}, "👎 Not for me");
+  const vote = (btn, ev) => () => { send(ev, r, pos); up.disabled = down.disabled = true; btn.classList.add("on"); };
+  up.addEventListener("click", vote(up, "up"));
+  down.addEventListener("click", vote(down, "down"));
+  const link = el("a", { href: `https://www.amazon.com/dp/${encodeURIComponent(r.product_id)}`, target: "_blank", rel: "noopener noreferrer" }, "View listing ↗");
+  link.addEventListener("click", () => send("click", r, pos));
+  const img = el("img", { alt: "", loading: "lazy", referrerpolicy: "no-referrer" });
+  if (r.image_url) img.src = r.image_url;
+  img.addEventListener("error", () => { img.style.visibility = "hidden"; });
+  return el("div", { class: "card" }, img, el("div", {},
+    el("div", { class: "rank" }, `#${pos}`),
+    el("div", { class: "title" }, r.title),
+    el("div", { class: "meta" }, el("span", { class: "price" }, `$${Math.round(r.price)}`),
+       ` · ${r.brand} · ★ ${(r.avg_rating ?? 0).toFixed(1)} (${(r.num_ratings ?? 0).toLocaleString()})`),
+    el("div", { class: "meta" }, fmtSpecs(r.specs)),
+    r.why ? el("div", { class: "why" }, "Why: " + r.why.replaceAll(" | ", " · ")) : null,
+    el("div", { class: "actions" }, up, down, link, el("label", { class: "cmp" }, cb, "Compare"))));
+}
+
+function toggle(r, cb) {
+  if (cb.checked) {
+    if (selected.size >= 3) { cb.checked = false; alert("Pick up to 3 products to compare."); return; }
+    selected.set(r.product_id, r.category);
+  } else selected.delete(r.product_id);
+  updateBar();
+}
+function updateBar() {
+  const n = selected.size;
+  $("#bar").style.display = n ? "flex" : "none";
+  $("#barText").textContent = `${n} selected`;
+  $("#cmpBtn").disabled = n < 2;
+}
+$("#cmpClear").addEventListener("click", () => {
+  selected.clear(); updateBar(); document.querySelectorAll(".cmp input").forEach((c) => (c.checked = false));
+});
+$("#cmpBtn").addEventListener("click", async () => {
+  const ids = [...selected.keys()];
+  try {
+    const r = await fetch("/compare?ids=" + ids.map(encodeURIComponent).join(","));
+    if (!r.ok) throw new Error((await r.json()).detail);
+    const d = await r.json();
+    ids.forEach((id) => send("compare", { product_id: id }, null));
+    showCompare(d);
+  } catch (e) { alert(e.message); }
+});
+function showCompare(d) {
+  const dlg = $("#dlg");
+  dlg.replaceChildren();
+  const fmt = (v) => (v === null || v === undefined ? "—" : v === true ? "Yes" : v === false ? "No" : String(v).slice(0, 60));
+  const rows = [
+    ["Price", (p) => `$${Math.round(p.price)}`],
+    ["Rating", (p) => `★ ${(p.avg_rating ?? 0).toFixed(1)} (${(p.num_ratings ?? 0).toLocaleString()})`],
+    ...d.labels.map((l) => [l, (p) => fmt(p.specs[l])]),
+  ];
+  const table = el("table", {},
+    el("tr", {}, el("td"), d.products.map((p) => el("td", { class: "h" }, p.title.slice(0, 55)))),
+    rows.map(([label, f]) => el("tr", {}, el("th", {}, label), d.products.map((p) => el("td", {}, f(p))))));
+  dlg.append(el("h3", {}, "Side by side"), table,
+    el("ul", {}, d.highlights.map((h) => el("li", {}, h))),
+    el("button", { class: "ex", onclick: () => dlg.close() }, "Close"));
+  dlg.showModal();
+}
+
+async function doSearch(query, category = null) {
+  query = query.trim();
+  if (!query) return;
+  lastQuery = query; selected.clear(); updateBar();
+  const out = $("#out");
+  out.replaceChildren(el("p", { class: "note" }, "Searching…"));
+  try {
+    const d = await post("/search", { query, session_id: sid, category });
+    lastCategory = d.category || null;
+    out.replaceChildren();
+    if (d.needs_category) {
+      out.append(el("p", { class: "note" }, "Are you shopping for laptops or headphones?"),
+        el("div", { class: "examples" }, ["laptops", "headphones"].map((c) => el("button", { class: "ex", onclick: () => doSearch(query, c) }, c))));
+      return;
+    }
+    out.append(chips(d.intent, d.category));
+    if (!d.results.length) out.append(el("p", { class: "note" }, "No matches. Try a higher budget or fewer requirements."));
+    d.results.forEach((r, i) => out.append(card(r, i + 1)));
+    $("#foot").textContent = `Ranker ${d.ranker} · ${d.latency_ms} ms${d.cached ? " (cached)" : ""} · prices from the 2023 Amazon Reviews dataset`;
+  } catch (e) { out.replaceChildren(el("p", { class: "note" }, "Something went wrong: " + e.message)); }
+}
+
+$("#f").addEventListener("submit", (e) => { e.preventDefault(); doSearch($("#q").value); });
+EXAMPLES.forEach((t) => $("#examples").append(
+  el("button", { class: "ex", type: "button", onclick: () => { $("#q").value = t; doSearch(t); } }, t.length > 60 ? t.slice(0, 57) + "…" : t)));
+</script>
+</body>
+</html>
