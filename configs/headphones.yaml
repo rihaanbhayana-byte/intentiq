@@ -1,0 +1,32 @@
+category: headphones
+keywords: [headphone, headphones, earbud, earbuds, earphone, earphones, headset, airpods, noise cancelling, noise canceling]
+use_cases:
+  travel:
+    triggers: [flight, flights, flying, airplane, plane, commute, commuting, train, subway, travel]
+    requires: {anc: true}
+    priorities: [comfort, battery]
+  workout:
+    triggers: [gym, workout, running, jogging, exercise, sports, sweat]
+    requires: {wireless: true, form_factor: in-ear}
+    priorities: [durability]
+  studio:
+    triggers: [studio, mixing, monitoring, music production, audiophile]
+    requires: {wired: true, form_factor: over-ear}
+    priorities: [sound_quality]
+  calls:
+    triggers: [calls, meetings, zoom, work from home, wfh, office]
+    priorities: [microphone, comfort]
+  gaming:
+    triggers: [gaming, gamer, games]
+    priorities: [microphone, comfort]
+  sleep:
+    triggers: [sleep, sleeping, bed]
+    priorities: [comfort]
+priorities:
+  noise_cancelling: [noise cancelling, noise canceling, noise cancellation, anc, block noise]
+  battery: [battery, long battery, playtime]
+  comfort: [comfortable, comfort, all day wear]
+  bass: [bass, bassy]
+  sound_quality: [sound quality, hi-fi, hifi, audiophile, clear sound]
+  microphone: [microphone, mic, clear calls]
+  durability: [waterproof, sweatproof, sweat proof, durable]

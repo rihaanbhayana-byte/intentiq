@@ -1,0 +1,27 @@
+category: laptops
+keywords: [laptop, laptops, notebook, notebooks, macbook, chromebook, ultrabook, 2-in-1]
+use_cases:
+  student:
+    triggers: [mba, student, school, college, university, classes, coursework]
+    requires: {min_ram_gb: 8}
+    priorities: [portability, battery]
+  video_editing:
+    triggers: [video editing, video edit, editing videos, premiere, final cut, davinci, photo editing]
+    requires: {min_ram_gb: 16, min_storage_gb: 512}
+    priorities: [performance]
+  gaming:
+    triggers: [gaming, gamer, games, esports]
+    requires: {min_ram_gb: 16, needs_gpu: true}
+    priorities: [performance]
+  office:
+    triggers: [office, spreadsheets, excel, productivity, work]
+    requires: {min_ram_gb: 8}
+  travel:
+    triggers: [travel, traveling, commute, on the go]
+    priorities: [portability, battery]
+priorities:
+  battery: [battery, all day, all-day, lasts all day, long lasting]
+  portability: [lightweight, light weight, ultralight, portable, thin, slim, compact]
+  display: [big screen, large screen, bright screen, good display]
+  performance: [fast, powerful, performance, high performance]
+  value: [cheap, budget, affordable, value]
