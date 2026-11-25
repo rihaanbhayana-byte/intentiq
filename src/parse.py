@@ -95,7 +95,7 @@ def add(lst, items):
 def parse_query(query, default_category=None):
     text = query.lower()
     cat = detect_category(text) or default_category
-    out = {"category": cat, "max_price": parse_price(text), "use_cases": [], "priorities": [], "constraints": {}}
+    out = {"category": cat, "max_price": parse_price(text), "use_cases": [], "priorities": [], "constraints": {}, "text": text}
     if cat is None:
         return out
     cfg = CONFIGS[cat]

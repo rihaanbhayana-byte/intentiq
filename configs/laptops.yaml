@@ -13,6 +13,10 @@ use_cases:
     triggers: [gaming, gamer, games, esports]
     requires: {min_ram_gb: 16, needs_gpu: true}
     priorities: [performance]
+  programming:
+    triggers: [programming, coding, developer, software development, data science, machine learning, computer science]
+    requires: {min_ram_gb: 16}
+    priorities: [performance]
   office:
     triggers: [office, spreadsheets, excel, productivity, work]
     requires: {min_ram_gb: 8}

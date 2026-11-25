@@ -1,91 +1,91 @@
 query_id,category,system,labels,ndcg10,mrr,p5,n_results,unique_brands,top_brand_share,latency_ms,query
-L01,laptops,raw,criteria,0.0734,0.1429,0.0,10,5,0.5,581.3,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
-L01,laptops,A,criteria,0.8249,1.0,1.0,10,5,0.3,589.5,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
-L01,laptops,B,criteria,0.8049,1.0,1.0,10,5,0.3,587.8,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
-L02,laptops,raw,criteria,0.7273,1.0,1.0,10,4,0.4,139.3,gaming laptop with 16GB RAM under 1k
-L02,laptops,A,criteria,0.9364,1.0,1.0,10,4,0.3,145.3,gaming laptop with 16GB RAM under 1k
-L02,laptops,B,criteria,0.9364,1.0,1.0,10,4,0.3,144.7,gaming laptop with 16GB RAM under 1k
-L03,laptops,raw,criteria,0.2743,0.3333,0.4,10,7,0.4,130.7,cheap laptop for college under $400
-L03,laptops,A,criteria,0.7844,1.0,1.0,10,7,0.3,136.6,cheap laptop for college under $400
-L03,laptops,B,criteria,0.8525,1.0,1.0,10,7,0.3,135.9,cheap laptop for college under $400
-L04,laptops,raw,criteria,0.2201,1.0,0.2,10,5,0.3,29.9,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
-L04,laptops,A,criteria,0.6465,1.0,0.8,10,5,0.3,34.3,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
-L04,laptops,B,criteria,0.6465,1.0,0.8,10,5,0.3,33.8,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
-L05,laptops,raw,criteria,0.0,0.0,0.0,10,4,0.5,8.3,laptop for office work and excel under $600
-L05,laptops,A,criteria,0.8848,1.0,1.0,10,5,0.3,12.3,laptop for office work and excel under $600
+L01,laptops,raw,criteria,0.0734,0.1429,0.0,10,5,0.5,78.0,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
+L01,laptops,A,criteria,0.8215,1.0,1.0,10,5,0.3,87.7,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
+L01,laptops,B,criteria,0.8106,1.0,1.0,10,5,0.3,85.5,"lightweight laptop for MBA, occasional video editing, long battery life, under $1000"
+L02,laptops,raw,criteria,0.7273,1.0,1.0,10,4,0.4,9.3,gaming laptop with 16GB RAM under 1k
+L02,laptops,A,criteria,0.9364,1.0,1.0,10,4,0.3,16.6,gaming laptop with 16GB RAM under 1k
+L02,laptops,B,criteria,0.9364,1.0,1.0,10,4,0.3,16.0,gaming laptop with 16GB RAM under 1k
+L03,laptops,raw,criteria,0.2743,0.3333,0.4,10,7,0.4,9.4,cheap laptop for college under $400
+L03,laptops,A,criteria,0.7844,1.0,1.0,10,7,0.3,15.3,cheap laptop for college under $400
+L03,laptops,B,criteria,0.8525,1.0,1.0,10,7,0.3,15.0,cheap laptop for college under $400
+L04,laptops,raw,criteria,0.2201,1.0,0.2,10,5,0.3,10.2,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
+L04,laptops,A,criteria,0.6465,1.0,0.8,10,5,0.3,14.5,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
+L04,laptops,B,criteria,0.6465,1.0,0.8,10,5,0.3,14.4,"ultralight laptop under 3.5 lbs, 14 inch, 512GB SSD under $900"
+L05,laptops,raw,criteria,0.0,0.0,0.0,10,4,0.5,7.9,laptop for office work and excel under $600
+L05,laptops,A,criteria,0.8848,1.0,1.0,10,5,0.3,12.2,laptop for office work and excel under $600
 L05,laptops,B,criteria,0.9134,1.0,1.0,10,6,0.3,11.9,laptop for office work and excel under $600
-L06,laptops,raw,criteria,1.0,1.0,1.0,10,3,0.8,835.4,Legion 5
-L06,laptops,A,criteria,0.6992,1.0,0.6,10,5,0.3,839.0,Legion 5
-L06,laptops,B,criteria,0.7227,1.0,0.6,10,5,0.3,838.6,Legion 5
-L07,laptops,raw,criteria,0.1618,0.25,0.4,10,6,0.3,128.5,computer for a student that lasts all day
-L07,laptops,A,criteria,0.5874,1.0,1.0,10,6,0.3,133.8,computer for a student that lasts all day
-L07,laptops,B,criteria,0.5874,1.0,1.0,10,5,0.3,133.4,computer for a student that lasts all day
-L08,laptops,raw,criteria,1.0,1.0,0.2,10,6,0.3,379.4,macbook air
-L08,laptops,A,criteria,0.6309,0.5,0.2,10,5,0.3,383.0,macbook air
-L08,laptops,B,criteria,1.0,1.0,0.2,10,6,0.2,382.5,macbook air
-L09,laptops,raw,criteria,0.0694,0.125,0.0,10,4,0.4,8.0,laptop for video editing with 32GB RAM
-L09,laptops,A,criteria,0.7796,1.0,0.8,10,6,0.3,13.4,laptop for video editing with 32GB RAM
-L09,laptops,B,criteria,0.789,1.0,1.0,10,6,0.3,12.9,laptop for video editing with 32GB RAM
-L10,laptops,raw,criteria,1.0,1.0,1.0,10,5,0.4,9.1,chromebook for kids under $300
-L10,laptops,A,criteria,1.0,1.0,1.0,10,4,0.3,12.5,chromebook for kids under $300
-L10,laptops,B,criteria,1.0,1.0,1.0,10,4,0.3,12.2,chromebook for kids under $300
-L11,laptops,raw,criteria,0.4153,1.0,0.6,10,5,0.4,136.7,17 inch laptop with a big screen under $1200
-L11,laptops,A,criteria,0.9337,1.0,1.0,10,4,0.3,145.5,17 inch laptop with a big screen under $1200
-L11,laptops,B,criteria,0.9364,1.0,1.0,10,4,0.3,145.0,17 inch laptop with a big screen under $1200
-L12,laptops,raw,criteria,0.6641,0.5,0.8,10,4,0.5,136.1,2-in-1 touchscreen laptop for taking notes
-L12,laptops,A,criteria,0.594,0.5,0.8,10,5,0.3,139.7,2-in-1 touchscreen laptop for taking notes
-L12,laptops,B,criteria,0.6018,0.5,0.8,10,6,0.3,139.3,2-in-1 touchscreen laptop for taking notes
-L13,laptops,raw,criteria,0.0663,0.1111,0.0,10,7,0.3,9.7,powerful laptop for programming under $1500
-L13,laptops,A,criteria,0.2083,0.1667,0.0,10,6,0.3,14.5,powerful laptop for programming under $1500
-L13,laptops,B,criteria,0.298,0.25,0.2,10,6,0.3,14.2,powerful laptop for programming under $1500
-L14,laptops,raw,criteria,0.4658,1.0,0.8,10,8,0.2,432.0,thin and light laptop for travel
-L14,laptops,A,criteria,0.8183,1.0,1.0,10,7,0.3,437.4,thin and light laptop for travel
-L14,laptops,B,criteria,0.8274,1.0,1.0,10,7,0.3,436.9,thin and light laptop for travel
-L15,laptops,raw,criteria,0.6137,1.0,0.6,10,8,0.3,9.3,budget gaming laptop with RTX under $800
-L15,laptops,A,criteria,1.0,1.0,1.0,10,6,0.3,15.3,budget gaming laptop with RTX under $800
-L15,laptops,B,criteria,1.0,1.0,1.0,10,6,0.3,14.9,budget gaming laptop with RTX under $800
-H01,headphones,raw,criteria,0.8645,1.0,1.0,10,7,0.4,10.5,noise cancelling headphones for flights and commuting
-H01,headphones,A,criteria,0.9537,1.0,1.0,10,8,0.3,17.2,noise cancelling headphones for flights and commuting
-H01,headphones,B,criteria,0.9576,1.0,1.0,10,8,0.3,16.7,noise cancelling headphones for flights and commuting
-H02,headphones,raw,criteria,0.7124,1.0,0.6,10,10,0.1,9.5,wireless earbuds for the gym under $50
-H02,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,14.9,wireless earbuds for the gym under $50
-H02,headphones,B,criteria,1.0,1.0,1.0,10,10,0.1,14.7,wireless earbuds for the gym under $50
-H03,headphones,raw,criteria,0.8205,1.0,0.8,10,9,0.2,9.7,studio headphones wired over-ear under $200
-H03,headphones,A,criteria,0.9364,1.0,1.0,10,9,0.2,16.5,studio headphones wired over-ear under $200
-H03,headphones,B,criteria,0.9306,1.0,1.0,10,10,0.1,16.2,studio headphones wired over-ear under $200
-H04,headphones,raw,criteria,,0.0,0.0,10,10,0.1,9.1,airpods pro
-H04,headphones,A,criteria,,0.0,0.0,10,10,0.1,12.3,airpods pro
-H04,headphones,B,criteria,,0.0,0.0,10,10,0.1,11.9,airpods pro
-H05,headphones,raw,criteria,0.6986,1.0,1.0,10,10,0.1,10.1,headset with microphone for zoom calls under $80
-H05,headphones,A,criteria,0.9014,1.0,1.0,10,10,0.1,16.2,headset with microphone for zoom calls under $80
-H05,headphones,B,criteria,0.8905,1.0,1.0,10,10,0.1,16.0,headset with microphone for zoom calls under $80
-H06,headphones,raw,criteria,0.7846,1.0,1.0,10,10,0.1,366.6,gaming headset with mic
-H06,headphones,A,criteria,0.8007,1.0,1.0,10,10,0.1,373.3,gaming headset with mic
-H06,headphones,B,criteria,0.9266,1.0,1.0,10,10,0.1,372.8,gaming headset with mic
-H07,headphones,raw,criteria,0.4291,1.0,0.2,10,7,0.3,9.3,sleep earbuds for side sleepers
-H07,headphones,A,criteria,0.9095,1.0,1.0,10,7,0.3,15.2,sleep earbuds for side sleepers
-H07,headphones,B,criteria,0.9095,1.0,1.0,10,7,0.3,14.7,sleep earbuds for side sleepers
-H08,headphones,raw,criteria,0.6909,1.0,1.0,10,9,0.2,9.4,bass heavy headphones under $100
-H08,headphones,A,criteria,1.0,1.0,1.0,10,8,0.3,13.4,bass heavy headphones under $100
-H08,headphones,B,criteria,1.0,1.0,1.0,10,8,0.3,13.1,bass heavy headphones under $100
-H09,headphones,raw,criteria,0.3938,1.0,0.4,10,10,0.1,9.5,wireless over-ear headphones with long battery
-H09,headphones,A,criteria,0.8338,1.0,1.0,10,9,0.2,14.0,wireless over-ear headphones with long battery
-H09,headphones,B,criteria,0.8468,1.0,1.0,10,9,0.2,13.7,wireless over-ear headphones with long battery
-H10,headphones,raw,criteria,0.8503,1.0,0.4,10,1,1.0,8.9,Sony WH-1000XM4
-H10,headphones,A,criteria,0.3066,0.3333,0.2,10,8,0.3,12.5,Sony WH-1000XM4
-H10,headphones,B,criteria,0.0,0.0,0.0,10,8,0.3,12.2,Sony WH-1000XM4
+L06,laptops,raw,criteria,1.0,1.0,1.0,10,3,0.8,16.1,Legion 5
+L06,laptops,A,criteria,1.0,1.0,1.0,10,3,0.8,20.1,Legion 5
+L06,laptops,B,criteria,0.9896,1.0,0.8,10,3,0.8,19.8,Legion 5
+L07,laptops,raw,criteria,0.1618,0.25,0.4,10,6,0.3,8.9,computer for a student that lasts all day
+L07,laptops,A,criteria,0.5874,1.0,1.0,10,6,0.3,22.9,computer for a student that lasts all day
+L07,laptops,B,criteria,0.5874,1.0,1.0,10,5,0.3,24.8,computer for a student that lasts all day
+L08,laptops,raw,criteria,1.0,1.0,0.2,10,6,0.3,15.2,macbook air
+L08,laptops,A,criteria,0.6309,0.5,0.2,10,5,0.3,20.7,macbook air
+L08,laptops,B,criteria,1.0,1.0,0.2,10,6,0.2,19.2,macbook air
+L09,laptops,raw,criteria,0.0694,0.125,0.0,10,4,0.4,6.8,laptop for video editing with 32GB RAM
+L09,laptops,A,criteria,0.7826,1.0,0.8,10,6,0.3,13.8,laptop for video editing with 32GB RAM
+L09,laptops,B,criteria,0.8033,1.0,1.0,10,6,0.3,13.2,laptop for video editing with 32GB RAM
+L10,laptops,raw,criteria,1.0,1.0,1.0,10,5,0.4,8.8,chromebook for kids under $300
+L10,laptops,A,criteria,1.0,1.0,1.0,10,4,0.3,13.0,chromebook for kids under $300
+L10,laptops,B,criteria,1.0,1.0,1.0,10,4,0.3,12.5,chromebook for kids under $300
+L11,laptops,raw,criteria,0.4153,1.0,0.6,10,5,0.4,10.7,17 inch laptop with a big screen under $1200
+L11,laptops,A,criteria,0.9337,1.0,1.0,10,4,0.3,20.2,17 inch laptop with a big screen under $1200
+L11,laptops,B,criteria,0.9364,1.0,1.0,10,4,0.3,20.9,17 inch laptop with a big screen under $1200
+L12,laptops,raw,criteria,0.6641,0.5,0.8,10,4,0.5,10.3,2-in-1 touchscreen laptop for taking notes
+L12,laptops,A,criteria,0.9511,1.0,1.0,10,5,0.3,14.8,2-in-1 touchscreen laptop for taking notes
+L12,laptops,B,criteria,0.9537,1.0,1.0,10,5,0.3,14.3,2-in-1 touchscreen laptop for taking notes
+L13,laptops,raw,criteria,0.0663,0.1111,0.0,10,7,0.3,8.5,powerful laptop for programming under $1500
+L13,laptops,A,criteria,0.9266,1.0,1.0,10,6,0.3,15.0,powerful laptop for programming under $1500
+L13,laptops,B,criteria,1.0,1.0,1.0,10,5,0.3,14.8,powerful laptop for programming under $1500
+L14,laptops,raw,criteria,0.4658,1.0,0.8,10,8,0.2,15.2,thin and light laptop for travel
+L14,laptops,A,criteria,0.8183,1.0,1.0,10,7,0.3,21.3,thin and light laptop for travel
+L14,laptops,B,criteria,0.8274,1.0,1.0,10,7,0.3,20.6,thin and light laptop for travel
+L15,laptops,raw,criteria,0.6137,1.0,0.6,10,8,0.3,9.1,budget gaming laptop with RTX under $800
+L15,laptops,A,criteria,1.0,1.0,1.0,10,6,0.3,16.3,budget gaming laptop with RTX under $800
+L15,laptops,B,criteria,1.0,1.0,1.0,10,6,0.3,16.0,budget gaming laptop with RTX under $800
+H01,headphones,raw,criteria,0.8645,1.0,1.0,10,7,0.4,9.9,noise cancelling headphones for flights and commuting
+H01,headphones,A,criteria,0.9537,1.0,1.0,10,8,0.3,18.8,noise cancelling headphones for flights and commuting
+H01,headphones,B,criteria,0.9576,1.0,1.0,10,8,0.3,16.9,noise cancelling headphones for flights and commuting
+H02,headphones,raw,criteria,0.7124,1.0,0.6,10,10,0.1,10.0,wireless earbuds for the gym under $50
+H02,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,17.5,wireless earbuds for the gym under $50
+H02,headphones,B,criteria,1.0,1.0,1.0,10,10,0.1,15.7,wireless earbuds for the gym under $50
+H03,headphones,raw,criteria,0.8205,1.0,0.8,10,9,0.2,9.8,studio headphones wired over-ear under $200
+H03,headphones,A,criteria,0.9364,1.0,1.0,10,9,0.2,18.3,studio headphones wired over-ear under $200
+H03,headphones,B,criteria,0.9306,1.0,1.0,10,10,0.1,16.8,studio headphones wired over-ear under $200
+H04,headphones,raw,criteria,,0.0,0.0,10,10,0.1,9.6,airpods pro
+H04,headphones,A,criteria,,0.0,0.0,10,10,0.1,14.6,airpods pro
+H04,headphones,B,criteria,,0.0,0.0,10,10,0.1,13.1,airpods pro
+H05,headphones,raw,criteria,0.6986,1.0,1.0,10,10,0.1,9.8,headset with microphone for zoom calls under $80
+H05,headphones,A,criteria,0.9014,1.0,1.0,10,10,0.1,17.7,headset with microphone for zoom calls under $80
+H05,headphones,B,criteria,0.8905,1.0,1.0,10,10,0.1,16.4,headset with microphone for zoom calls under $80
+H06,headphones,raw,criteria,0.7846,1.0,1.0,10,10,0.1,14.0,gaming headset with mic
+H06,headphones,A,criteria,0.8007,1.0,1.0,10,10,0.1,21.6,gaming headset with mic
+H06,headphones,B,criteria,0.9266,1.0,1.0,10,10,0.1,20.7,gaming headset with mic
+H07,headphones,raw,criteria,0.4291,1.0,0.2,10,7,0.3,7.6,sleep earbuds for side sleepers
+H07,headphones,A,criteria,0.9095,1.0,1.0,10,7,0.3,14.8,sleep earbuds for side sleepers
+H07,headphones,B,criteria,0.9095,1.0,1.0,10,7,0.3,13.7,sleep earbuds for side sleepers
+H08,headphones,raw,criteria,0.6909,1.0,1.0,10,9,0.2,7.9,bass heavy headphones under $100
+H08,headphones,A,criteria,1.0,1.0,1.0,10,8,0.3,13.3,bass heavy headphones under $100
+H08,headphones,B,criteria,1.0,1.0,1.0,10,8,0.3,12.2,bass heavy headphones under $100
+H09,headphones,raw,criteria,0.3938,1.0,0.4,10,10,0.1,8.3,wireless over-ear headphones with long battery
+H09,headphones,A,criteria,0.8338,1.0,1.0,10,9,0.2,13.7,wireless over-ear headphones with long battery
+H09,headphones,B,criteria,0.8468,1.0,1.0,10,9,0.2,13.0,wireless over-ear headphones with long battery
+H10,headphones,raw,criteria,0.8503,1.0,0.4,10,1,1.0,7.5,Sony WH-1000XM4
+H10,headphones,A,criteria,0.8772,1.0,0.4,10,1,1.0,11.0,Sony WH-1000XM4
+H10,headphones,B,criteria,0.8066,1.0,0.2,10,1,1.0,10.5,Sony WH-1000XM4
 H11,headphones,raw,criteria,1.0,1.0,1.0,10,10,0.1,9.0,cheap wired earbuds under $20
-H11,headphones,A,criteria,1.0,1.0,1.0,10,9,0.2,12.5,cheap wired earbuds under $20
-H11,headphones,B,criteria,1.0,1.0,1.0,10,9,0.2,12.3,cheap wired earbuds under $20
-H12,headphones,raw,criteria,0.6,0.5,0.4,10,10,0.1,7.4,noise cancelling earbuds under $100
-H12,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,11.4,noise cancelling earbuds under $100
-H12,headphones,B,criteria,1.0,1.0,1.0,10,9,0.2,11.0,noise cancelling earbuds under $100
-H13,headphones,raw,criteria,0.316,0.25,0.2,10,10,0.1,7.7,waterproof earbuds for swimming
-H13,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,12.2,waterproof earbuds for swimming
-H13,headphones,B,criteria,1.0,1.0,1.0,10,10,0.1,11.9,waterproof earbuds for swimming
-H14,headphones,raw,criteria,1.0,1.0,1.0,10,9,0.2,8.3,kids headphones with volume limit
-H14,headphones,A,criteria,1.0,1.0,1.0,10,8,0.3,11.3,kids headphones with volume limit
-H14,headphones,B,criteria,1.0,1.0,1.0,10,8,0.3,11.1,kids headphones with volume limit
-H15,headphones,raw,criteria,1.0,1.0,1.0,10,9,0.2,8.8,bluetooth headphones for running that stay in
-H15,headphones,A,criteria,0.8481,1.0,1.0,10,10,0.1,14.8,bluetooth headphones for running that stay in
-H15,headphones,B,criteria,0.8336,1.0,1.0,10,10,0.1,14.4,bluetooth headphones for running that stay in
+H11,headphones,A,criteria,1.0,1.0,1.0,10,9,0.2,13.3,cheap wired earbuds under $20
+H11,headphones,B,criteria,1.0,1.0,1.0,10,9,0.2,12.8,cheap wired earbuds under $20
+H12,headphones,raw,criteria,0.6,0.5,0.4,10,10,0.1,8.8,noise cancelling earbuds under $100
+H12,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,13.8,noise cancelling earbuds under $100
+H12,headphones,B,criteria,1.0,1.0,1.0,10,9,0.2,13.0,noise cancelling earbuds under $100
+H13,headphones,raw,criteria,0.316,0.25,0.2,10,10,0.1,9.4,waterproof earbuds for swimming
+H13,headphones,A,criteria,1.0,1.0,1.0,10,10,0.1,15.0,waterproof earbuds for swimming
+H13,headphones,B,criteria,1.0,1.0,1.0,10,10,0.1,14.1,waterproof earbuds for swimming
+H14,headphones,raw,criteria,1.0,1.0,1.0,10,9,0.2,9.8,kids headphones with volume limit
+H14,headphones,A,criteria,1.0,1.0,1.0,10,8,0.3,13.7,kids headphones with volume limit
+H14,headphones,B,criteria,1.0,1.0,1.0,10,8,0.3,12.9,kids headphones with volume limit
+H15,headphones,raw,criteria,1.0,1.0,1.0,10,9,0.2,9.5,bluetooth headphones for running that stay in
+H15,headphones,A,criteria,0.8481,1.0,1.0,10,10,0.1,16.3,bluetooth headphones for running that stay in
+H15,headphones,B,criteria,0.8336,1.0,1.0,10,10,0.1,15.8,bluetooth headphones for running that stay in

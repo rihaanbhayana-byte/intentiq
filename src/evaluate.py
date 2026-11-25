@@ -117,7 +117,7 @@ def main():
 
     lines = [f"# IntentIQ offline evaluation", "",
              f"Run {datetime.now():%Y-%m-%d %H:%M} · {len(cases)} queries · top {K} · labels: "
-             f"{'hand labels for ' + str(len(human)) + ' queries, criteria for the rest' if human else 'criteria from golden.yaml'}", ""]
+             f"{a.labels + ' for ' + str(len(human)) + ' queries, criteria for the rest' if human else 'criteria from golden.yaml'}", ""]
 
     def table(df, title):
         lines.extend([f"## {title}", "", "| System | NDCG@10 | MRR | P@5 | Zero-result rate | Avg latency (ms) |", "|---|---|---|---|---|---|"])

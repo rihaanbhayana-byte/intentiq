@@ -91,7 +91,7 @@ def intent_for(text, cat):
     """Same logic as parse_query, but with the category already decided."""
     t = text.lower()
     cfg = CONFIGS[cat]
-    out = {"category": cat, "max_price": parse_price(t), "use_cases": [], "priorities": [], "constraints": {}}
+    out = {"category": cat, "max_price": parse_price(t), "use_cases": [], "priorities": [], "constraints": {}, "text": t}
     c = out["constraints"]
     for name, uc in cfg["use_cases"].items():
         if any_has(t, uc["triggers"]):
@@ -211,7 +211,7 @@ class Agent:
         msgs += sess["history"][-10:] + [{"role": "user", "content": msg}]
         res = {"clarify": False, "searched": False, "llm_calls": 0, "provider": None, "reply": None, "tools": []}
         for _ in range(MAX_STEPS):
-            m, res["provider"] = llm.chat(msgs, TOOLS)
+            m, res["provider"] = llm.chat(msgs, TOOLS if not sess["asked"] else TOOLS[:2])  # at most one question in a row
             res["llm_calls"] += 1
             calls = m.get("tool_calls") or []
             if not calls:

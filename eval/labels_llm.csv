@@ -1,0 +1,471 @@
+query_id,product_id,grade,reason
+L01,B0B5DFFJ6S,1,Light but weak CPU and RAM
+L01,B08CMB8F7C,1,Low RAM and weak processor
+L01,B0C4LWTYST,1,Celeron CPU limits video editing
+L01,B08SK13P2R,2,"Balanced specs, good for MBA"
+L01,B0C3RCQDM9,0,Heavy and insufficient RAM
+L01,B0932QXJ85,1,"Chrome OS, low RAM"
+L01,B0BRKDZ81B,2,"Strong RAM, decent CPU, portable"
+L01,B0BQVY96BC,1,"Chrome OS, heavy for portability"
+L01,B0BM57CTYL,2,Excellent performance and lightweight
+L01,B09W2FPZVZ,1,"Weak CPU, low RAM"
+L01,B0BZ462TM8,2,"High-end specs, fits budget"
+L01,B0BZ44WCLD,2,"High-end specs, fits budget"
+L01,B0BK6685YF,2,"Powerful i5, good battery"
+L01,B0BMXFDSKM,1,Heavy weight despite good specs
+L01,B09V7VY3YR,2,"Strong RAM, adequate i3 performance"
+L01,B09ZXZFZHV,1,HDD slows performance
+L01,B09YWN484G,2,"Great performance, lightweight"
+L01,B09888HRRC,2,"Powerful i7, versatile 2-in-1"
+L01,B09HZY1LN3,2,"Strong i5 H-series, lightweight"
+L02,B07V7K96MY,2,Meets all criteria
+L02,B0B675BTLQ,2,Meets all criteria
+L02,B09MR6YF26,2,Meets all criteria
+L02,B09YVTK8LN,2,Meets all criteria
+L02,B07TYMF5QC,1,Price at $1000 limit
+L02,B0912CGY5Q,2,Meets all criteria
+L02,B07H93MSRR,0,Only 8GB RAM
+L02,B0BGYG3JRJ,0,Not a gaming laptop
+L02,B086QZPGKZ,0,Only 8GB RAM
+L02,B0B48WZRKC,0,Not marketed as gaming
+L02,B08F4RXTGZ,2,Meets all criteria
+L02,B0C59WG9B9,2,More RAM but still fits
+L02,B0C6Q2Q3ZN,2,Meets all criteria
+L03,B0C1ZW55FF,1,"Small screen, unknown storage"
+L03,B087CFPYF6,0,Too low specs for college
+L03,B07VDNRHGS,2,"Excellent performance, great value"
+L03,B0C4LWTYST,2,"Solid specs, affordable"
+L03,B0C3RCQDM9,1,Only 4 GB RAM
+L03,B08LBZRVLG,1,ChromeOS may limit software
+L03,B0BGMSYMTC,1,"Small screen, limited storage"
+L03,B0BRCRY29F,2,Strong RAM and SSD
+L03,B0B9JH88Z1,1,"Limited storage, low power"
+L03,B08HYX7RXX,1,ChromeOS and small storage
+L03,B07NPKHH36,1,"ChromeOS, limited storage"
+L03,B08SK13P2R,2,Strong i3 performance
+L03,B0C65QDYFM,2,"High RAM/SSD, modest CPU"
+L03,B0BRZW761C,2,"High RAM/SSD, modest CPU"
+L03,B0B5YN4B5J,2,"Powerful i3, ample storage"
+L03,B0BJSD473L,2,Ryzen 3 offers good performance
+L03,B09V3J3YNX,1,Low‑end CPU despite good RAM
+L04,B08QC4R5YC,2,perfect match
+L04,B09432ZFQ6,0,wrong size and weight
+L04,B07239QH2C,0,"wrong size, weight, storage"
+L04,B09WV9P229,0,"wrong size, weight, storage"
+L04,B07LDVX6R6,0,wrong size and storage
+L04,B09SHPFQB3,0,"wrong size, weight, storage"
+L04,B0C5DCSBX4,0,overweight
+L04,B09SQWJ27J,0,wrong size and weight
+L04,B01KPLP706,0,"overweight, insufficient storage"
+L04,B0C3ZLK42C,0,"overweight, wrong size"
+L04,B0BCN8G9B2,2,perfect match
+L04,B0C2ZMJW53,2,perfect match
+L04,B0B9JFCNF2,2,perfect match
+L04,B086Z2FTLR,0,wrong screen size
+L04,B09QHP5CBB,0,overweight
+L04,B0B45M1X2Y,2,perfect match
+L05,B004RCOO68,2,"i5 CPU, sufficient for Excel"
+L05,B0BGMSYMTC,1,"Small screen, low‑power CPU"
+L05,B07DKQHJ6D,1,"Limited storage, low‑end CPU"
+L05,B087CFPYF6,0,"Too small, insufficient RAM"
+L05,B00P8DK7AM,0,"Insufficient RAM, Chrome OS"
+L05,B07XJ7PXT4,1,"Chrome OS, limited storage"
+L05,B0C1ZW55FF,1,"Low‑end AMD, limited storage"
+L05,B08CSHM6K1,1,"Low‑power AMD, limited storage"
+L05,B0B5DFFJ6S,1,"Chrome OS, limited storage"
+L05,B077X1ZB7H,1,"Low‑end CPU, limited storage"
+L05,B0B2DB2QXF,2,"8GB RAM, SSD, good for office"
+L05,B0BLGLMTR4,2,"Ample RAM/SSD, suitable for Excel"
+L05,B08SK13P2R,2,"i3 CPU, 8GB RAM, SSD"
+L05,B08DC72FBT,2,"Powerful i7, excellent for office"
+L05,B08R5VWJT3,2,"i3 CPU, 8GB RAM, SSD"
+L05,B08KKYQ76H,2,"i5 CPU, 8GB RAM, SSD"
+L05,B0C4LWTYST,1,"Low‑end CPU, but enough RAM"
+L05,B0B5YN4B5J,2,"i3 11th gen, 8GB, fast SSD"
+L05,B0BRZW761C,2,"12GB RAM, SSD, decent CPU"
+L05,B0BRCRY29F,2,"12GB RAM, SSD, adequate performance"
+L06,B09YVTK8LN,2,Exact Legion 5 model
+L06,B0BT88LP77,2,Exact Legion 5 model
+L06,B08J8FRDTB,2,Exact Legion 5 model
+L06,B09TF8J7LS,2,Exact Legion 5 model
+L06,B0BTHT7JC1,2,Exact Legion 5 model
+L06,B07WTW4856,1,Legion series but not 5
+L06,B092HFYTRJ,1,Legion series but not 5
+L06,B07TYMF5QC,1,Legion series but not 5
+L06,B0BWV4MXQG,0,"Different brand, not Legion"
+L06,B08KRMGBC2,0,"Different brand, not Legion"
+L06,B07239QH2C,0,"Different brand, not Legion"
+L06,B0BBKDCPGY,0,"Different brand, not Legion"
+L06,B0BM57CTYL,0,"Different brand, not Legion"
+L06,B097QCJZGL,0,"Different brand, not Legion"
+L06,B0C6R16VC4,0,"Different brand, not Legion"
+L07,B09W2FPZVZ,1,"Low RAM, limited storage"
+L07,B0C1ZW55FF,1,"Very small screen, unknown storage"
+L07,B08CSHM6L3,1,"Chrome OS, tiny storage"
+L07,B0BLGLMTR4,1,"Heavy 15.6"" chassis"
+L07,B08SL1QMG1,0,"Large, heavy, HDD slows battery life"
+L07,B08XNRTV6M,1,Heavy for a student laptop
+L07,B09DCJ5JF1,0,"Power‑hungry i7, bulky"
+L07,B09186J2B5,2,"Light, SSD, good battery"
+L07,B087CFPYF6,1,Very low RAM/storage
+L07,B0C4LWTYST,2,"Lightweight, SSD, adequate RAM"
+L07,B0BZ44WCLD,2,"Premium ultrabook, long battery"
+L07,B08SK13P2R,2,"Balanced specs, portable"
+L07,B0BZ462TM8,2,"High‑end ultrabook, good endurance"
+L07,B09DJSF748,2,"Ultra‑light, excellent battery"
+L07,B08Q3LLRXQ,2,"Thin, SSD, solid performance"
+L08,B0BB8BHKB8,2,Exact MacBook Air model
+L08,B00VSFL35W,0,"Apple MacBook, not Air"
+L08,B00PRND44E,0,Non‑Apple Windows laptop
+L08,B09KTXZXTK,0,"Gaming laptop, not MacBook Air"
+L08,B088NC4F5Z,0,"Acer laptop, not MacBook Air"
+L08,B0919D9RK4,0,"Gaming laptop, not MacBook Air"
+L08,B00GK6GIM2,0,"Acer laptop, not MacBook Air"
+L08,B08F82FJT1,0,"Gaming laptop, not MacBook Air"
+L08,B08DTJC9N7,0,"Chromebook, not MacBook Air"
+L08,B07PSKJXJQ,0,"Windows laptop, not MacBook Air"
+L08,B0856QVM2F,0,"Chromebook, not MacBook Air"
+L08,B076919RKR,0,"Acer Windows laptop, not MacBook Air"
+L08,B0C52R7FX2,0,"Acer laptop, not MacBook Air"
+L08,B07239QH2C,0,"ASUS laptop, not MacBook Air"
+L08,B08M8VCHCQ,0,"ASUS laptop, not MacBook Air"
+L08,B0BS2CZQ2G,0,"ASUS laptop, not MacBook Air"
+L08,B0BN84C552,0,"Chromebook, not MacBook Air"
+L08,B07P2FMSGP,0,"Acer laptop, not MacBook Air"
+L09,B0C3RCQDM9,0,Only 4 GB RAM
+L09,B0932QXJ85,0,Only 4 GB RAM
+L09,B0C2FHKNBD,0,Only 4 GB RAM
+L09,B09VK1LH3H,0,Only 12 GB RAM
+L09,B09V7VY3YR,0,Only 20 GB RAM
+L09,B0BGMSYMTC,0,Only 4 GB RAM
+L09,B07J1XH67V,0,Only 16 GB RAM
+L09,B0BS5ZR1M7,2,"32 GB RAM, adequate CPU"
+L09,B0BSLFYW49,0,Only 4 GB RAM
+L09,B09BCNF1QG,0,Only 4 GB RAM
+L09,B09H5Z36S1,2,"32 GB RAM, high‑end CPU"
+L09,B0BKRN2XHN,2,"32 GB RAM, decent CPU"
+L09,B0C59WG9B9,2,"32 GB RAM, strong GPU"
+L09,B0B2YG542C,2,"32 GB RAM, good performance"
+L09,B0BYSLQ78L,0,Only 16 GB RAM
+L09,B08F82FJT1,2,"32 GB RAM, top‑tier specs"
+L09,B0BW85W1YX,0,Only 16 GB RAM
+L09,B09X3WJKMH,2,"32 GB RAM, capable CPU"
+L09,B0BZR3P522,2,"32 GB RAM, solid specs"
+L10,B07FPB9SB1,2,"Great price, convertible, lightweight"
+L10,B07XJ7PXT4,2,"Very light, perfect size"
+L10,B01MS79M6Y,1,Low RAM and storage
+L10,B07GLV1VC7,1,A bit heavy for kids
+L10,B08LBZRVLG,1,Screen too large for kids
+L10,B0B5DFFJ6S,1,Weight a bit high
+L10,B07QJYV14C,1,Heavier than ideal
+L10,B08121WY1B,1,"Heavy flip, near budget limit"
+L10,B07PNJGTF9,0,Too heavy for children
+L10,B08D4SGBLW,1,"Weight moderate, acceptable"
+L10,B096JQY4YR,2,"Touchscreen, good for kids"
+L10,B08CSHM6L3,2,"Swivel design, kid‑friendly"
+L10,B0BN84C552,2,"Lightweight 2‑in‑1, ideal"
+L11,B08SL1QMG1,2,Meets size and budget
+L11,B0C6JXQCF5,0,Screen too small
+L11,B09NNDSNRN,2,Meets size and budget
+L11,B08CMB8F7C,0,Screen too small
+L11,B09W5BY7Q1,2,Meets size and budget
+L11,B0B48WZRKC,0,Screen not 17 inch
+L11,B0C3RCQDM9,0,Screen too small
+L11,B0BS2CZQ2G,0,Screen too small
+L11,B0BRZW761C,0,Screen too small
+L11,B0C65QDYFM,0,Screen too small
+L11,B09X26YSHV,2,Meets size and budget
+L11,B07V7K96MY,2,Meets size and budget
+L11,B0BSXW639V,2,Meets size and budget
+L11,B09MV26KK4,2,Meets size and budget
+L11,B08MVSDVC5,2,Meets size and budget
+L11,B09SQWJ27J,2,Meets size and budget
+L11,B0876TDNGV,2,Meets size and budget
+L11,B09SHPFQB3,2,Meets size and budget
+L12,B08R5VWJT3,0,Not a convertible 2-in-1
+L12,B071Z6XPDZ,2,Full 2-in-1 with stylus support
+L12,B08LYSW7PD,2,"Convertible with stylus, good for notes"
+L12,B01HP8F7IO,2,"Powerful 2-in-1, great for notes"
+L12,B08L3T3LXK,1,2-in-1 but no stylus
+L12,B08HSJKYDK,1,2-in-1 but no stylus
+L12,B003NE68M4,0,"Regular laptop, not convertible"
+L12,B0BN84C552,2,"2-in-1 with stylus, ideal"
+L12,B01B16MXLU,2,"Convertible 2-in-1, suitable"
+L12,B0BS2W7V94,1,"2-in-1 lacking stylus, low specs"
+L12,B08KKYQ76H,0,Not a 2-in-1 convertible
+L12,B09YWN484G,0,Not a 2-in-1 convertible
+L12,B077XX31VL,2,"Solid 2-in-1, good match"
+L12,B07P2FMSGP,2,Premium 2-in-1 with stylus
+L13,B087CFPYF6,0,"Celeron, 3 GB RAM, not powerful"
+L13,B0C3RCQDM9,0,"Athlon dual-core, 4 GB RAM, weak"
+L13,B0B5YN4B5J,1,"i3 CPU, decent but not high-end"
+L13,B08R5VWJT3,1,"i3, limited storage, heavier"
+L13,B08KH8ZV4G,1,"i3, good RAM but lower tier"
+L13,B0C65QDYFM,0,"Celeron, insufficient for programming"
+L13,B085Y1DC49,0,"Celeron, 4 GB RAM, under-spec"
+L13,B09376XLF5,0,"Same as 7, not suitable"
+L13,B09ZP5MJFM,2,"i7, 16 GB RAM, strong performance"
+L13,B09WFZXLCR,2,"i7, lightweight, good for coding"
+L13,B09RMVCQM3,1,"i5 good, HDD slows down"
+L13,B09ZXZFZHV,1,"i5 good, HDD storage"
+L13,B0912CGY5Q,2,"i5 H-series, SSD, powerful"
+L14,B087CFPYF6,1,Very light but weak specs
+L14,B07239QH2C,0,Too heavy for travel
+L14,B0C4LWTYST,1,Light but low‑end CPU
+L14,B07J1XH67V,2,"Light, powerful, ideal travel laptop"
+L14,B085Y1DC49,1,Light but underpowered
+L14,B09376XLF5,1,Light but underpowered
+L14,B07NFTX2C4,2,"Light, high performance, excellent travel choice"
+L14,B07GLV1VC7,1,"Light but Chrome OS, limited performance"
+L14,B09CN2XR6F,1,"Slightly heavy, decent performance"
+L14,B0B9JFCNF2,2,"Light, strong performance, good travel laptop"
+L14,B08DC72FBT,2,"Light, high specs, perfect travel laptop"
+L14,B09YWN484G,2,"Light, solid specs, great travel option"
+L14,B0B5DFFJ6S,1,"Light but low specs, Chrome OS"
+L15,B0BWV4MXQG,2,"Meets budget, RTX, gaming specs"
+L15,B08KRMGBC2,0,No RTX GPU
+L15,B07V7K96MY,0,Lacks RTX graphics
+L15,B0BYBG1PPD,0,"No RTX, not gaming"
+L15,B08W9S22BF,0,"No RTX, not gaming"
+L15,B09MR6YF26,0,Missing RTX GPU
+L15,B07HGTFTZB,0,No RTX graphics
+L15,B0BRCRY29F,0,No RTX GPU
+L15,B097QCJZGL,0,Lacks RTX GPU
+L15,B0BGYG3JRJ,0,No RTX graphics
+L15,B0C1BXC2FQ,1,Price at $800 limit
+L15,B096WFDR87,0,No RTX GPU
+L15,B092YZQZZ7,2,Excellent RTX under budget
+L15,B0BBKDCPGY,0,Missing RTX GPU
+L15,B09TZV5B8M,0,No RTX graphics
+L15,B0BLHPZJCQ,0,Lacks RTX GPU
+H01,B0BLG1T9CY,2,"wireless over‑ear ANC, great battery"
+H01,B0054JJ0QW,1,"wired over‑ear, less convenient"
+H01,B00EFWBIT6,1,"on‑ear wired, less comfortable"
+H01,B00840RRPE,1,"on‑ear wired, less comfortable"
+H01,B0105VDCZ8,1,"wired over‑ear, acceptable"
+H01,B09GV2PSSP,2,"wireless over‑ear, good value"
+H01,B09JC8V5VN,1,"on‑ear, mixed mode, lower quality"
+H01,B0B3LXYHVH,1,"cheap wireless over‑ear, quality concerns"
+H01,B09MFMLGPZ,0,"earbuds, not headphones"
+H01,B09QPG1ZST,0,"in‑ear earbuds, not headphones"
+H01,B08BR4TNVR,2,"wireless over‑ear, long battery"
+H01,B00WU0PYXG,1,"wired over‑ear, high quality"
+H01,B0C5B1LW2Y,2,"wireless over‑ear, solid performance"
+H01,B0B75NHPTW,0,"kids headphones, volume limited"
+H01,B09V71BPJK,0,"in‑ear earbuds, not headphones"
+H02,B0C3R2WCKX,2,"Fits price, waterproof, true earbuds"
+H02,B0BKJXBQWF,0,"Over‑ear, not earbuds"
+H02,B08Y8VTQTC,2,"Cheap, waterproof, true earbuds"
+H02,B0B2ZG8DR4,2,"Budget, waterproof earbuds"
+H02,B0B5GRZ3FW,0,"On‑ear, not earbuds"
+H02,B0B9XMKD4Y,2,"Hooks secure, gym‑ready"
+H02,B0845ML6WD,2,"Gym‑suitable, under budget"
+H02,B0B2ZKXZZT,2,"Very cheap, waterproof"
+H02,B09MVR9NQ2,0,"Neckband style, not earbuds"
+H02,B0C18NZCDW,0,"Over‑ear, not earbuds"
+H02,B07XFMHQDP,2,"Gym‑ready, affordable"
+H02,B0BZ6XH3LC,2,"Water‑resistant, low price"
+H02,B0BFR3QPWR,1,No waterproof rating
+H02,B0C659M8KZ,2,"Waterproof, budget-friendly"
+H03,B07V6NFBZ7,2,"Exact match, within budget"
+H03,B01GW56PPA,2,"Meets all criteria, cheap"
+H03,B008D64IG0,0,Wired status unknown
+H03,B00WUOEKN2,1,Not studio‑grade
+H03,B00NLPUD7Q,2,Fits all requirements
+H03,B091K4WYD1,1,Not true studio headphones
+H03,B08128X9M9,2,All criteria satisfied
+H03,B082MXJVH3,0,"Wireless, not wired"
+H03,B06XY9NNNN,2,Meets studio and wired
+H03,B07KQL6J9Q,1,Not studio‑oriented
+H03,B07ZPRPRL1,2,Perfect studio wired match
+H03,B09J4QFYDR,0,"Kids headphones, not studio"
+H04,B0C4H1FMVG,1,Wireless ANC but not Apple
+H04,B09YRGYD9J,0,"No ANC, wrong brand"
+H04,B09MCZSHG1,0,"Wired, no ANC"
+H04,B019QRF50W,0,"Wired, no ANC"
+H04,B008D64IG0,0,"Over‑ear, not AirPods"
+H04,B07XW39HZQ,0,"Professional monitor, not consumer ANC"
+H04,B08M3ZWW51,0,"Wired, not true wireless"
+H04,B0C6F9TTDR,0,"Apple wired, no ANC"
+H04,B0C6JYJR9B,0,"Apple wired, not AirPods"
+H04,B0C6LBN6BX,0,"Apple wired, not AirPods"
+H04,B09F5N95V9,0,"Bone‑conduction, wrong form factor"
+H04,B0C6B1B34G,0,"Wired, not AirPods"
+H04,B08S7D289N,0,"Wired, no ANC"
+H05,B0BVLGGGBM,2,"Meets price, mic, wireless, good rating"
+H05,B0BMFJ7MXQ,2,"Meets price, mic, over‑ear, decent rating"
+H05,B0BKJSSK8Y,1,"Cheap, low rating, still meets basics"
+H05,B0C39XH7F7,2,"Professional wired headset, ideal for Zoom"
+H05,B092MKW5CR,0,"Earbuds, not headset"
+H05,B08XCFCF5F,2,"High‑quality wired headset, under budget"
+H05,B01N7T8PSO,0,"Earbuds, not headset"
+H05,B07V3RB9C1,1,"No noise cancelling, but functional"
+H05,B07D6TWPWX,0,"Earbuds, not headset"
+H05,B07Y7QX6NY,0,"Earbuds, not headset"
+H05,B09J4QFYDR,1,"Kids model, limited suitability"
+H05,B07BP1222X,0,"Earbuds, not headset"
+H05,B07S764D9V,0,"Earbuds, not headset"
+H05,B0BTWXN7DX,1,"Kids model, basic functionality"
+H05,B00R4ZVETA,1,"Classroom headset, lacks noise cancelling"
+H06,B07F7NS47H,2,"Gaming headset, mic, wired, good price"
+H06,B082DWJ131,1,"Earbuds, mic, not full headset"
+H06,B087JQQWGC,2,"Gaming headset, mic, wired, NC"
+H06,B085SX85PG,2,"Gaming headphones, mic, wired"
+H06,B09LTXKQC9,2,"Gaming headset, mic, wireless"
+H06,B07D6TWPWX,0,"Generic earbuds, no gaming focus"
+H06,B0BMFJ7MXQ,1,"Wireless headset, not marketed for gaming"
+H06,B0BGNWKS2F,0,"Earbuds, no gaming designation"
+H06,B08ZSPQN2P,2,"Gaming headset, mic, cat ear style"
+H06,B0BKJSSK8Y,1,"Wireless headset, lacks gaming branding"
+H06,B072J9J5WQ,0,"Earbuds, not a gaming headset"
+H06,B01N5FZT14,0,"Earbuds, not gaming"
+H06,B07V3RB9C1,0,"General headphones, no gaming"
+H06,B083WNSKDN,0,"Premium audio, not gaming headset"
+H06,B0C6GLTGQQ,0,"Apple earbuds, not gaming"
+H07,B0BMPZC3RQ,2,"In‑ear, wireless, noise cancelling, marketed for sleep"
+H07,B07V71HK45,0,"Headband, not earbuds"
+H07,B09FKYKZ5B,0,"Headband, not earbuds"
+H07,B0B3ND7VNG,0,"Sleep mask/headband, not earbuds"
+H07,B0B4K1RD3X,0,"Headband, not earbuds"
+H07,B09Y4HCRLM,0,"Sleep mask/headband, not earbuds"
+H07,B0B9SMMXC5,2,"True wireless earbuds, noise cancelling, sleep‑focused"
+H07,B077NB82ZN,2,"In‑ear wired earbuds, noise cancelling, side‑sleeper claim"
+H07,B098FCG99C,2,"Small wireless earbuds, noise cancelling, side‑sleep design"
+H07,B08YM1RGZP,0,"Over‑ear style, not earbuds"
+H07,B07XYSVJFR,2,"In‑ear wired earbuds, noise cancelling, side‑sleeper marketed"
+H07,B08YLDQ45Y,0,"Appears to be over‑ear/headband, not true earbuds"
+H07,B0BFF6SM21,2,"Tiny wireless earbuds, noise cancelling, side‑sleep focus"
+H07,B0BYDCK2RZ,0,"Headband, not earbuds"
+H07,B08952VZ14,1,Small wired earbuds but not sleep‑specific
+H07,B09MDB838W,1,Same as 15 – acceptable but lacks sleep design
+H07,B0B1QC9F6K,1,"True wireless earbuds, good specs but not sleep‑optimized"
+H08,B07J9RXPY8,0,No bass claim
+H08,B0BGNX8WXX,2,"Heavy bass, cheap"
+H08,B00WUOEKN2,0,Lacks bass emphasis
+H08,B088G6RQ6S,0,No bass mention
+H08,B09YDFRZ74,0,No bass claim
+H08,B01H3F0SG0,2,"Powerful bass, good price"
+H08,B091K4WYD1,2,"Bass‑focused over‑ear, affordable"
+H08,B09QPG1ZST,1,"Bass mentioned, unclear strength"
+H08,B008PA65II,2,"Powerful bass, good price"
+H08,B0BS97JSNP,0,No bass claim
+H08,B00NWHYMR0,2,"Extra Bass, excellent"
+H08,B0C6KS7XLT,2,"Heavy bass, cheap"
+H08,B09NLZGYNV,2,"Deep bass, acceptable"
+H08,B092LF5MYD,2,"Powerful bass, good price"
+H08,B07FFJFMV9,0,No bass mention
+H09,B0C3ZQ7KHJ,0,Not true over‑ear
+H09,B09L3KH25M,0,"On‑ear, short battery"
+H09,B07H7DVHV4,1,Battery life unspecified
+H09,B07TZX9X3K,0,In‑ear form factor
+H09,B0BPDNYTMK,0,"Bone‑conduction, not over‑ear"
+H09,B09KVHV2MF,2,"20 h battery, over‑ear"
+H09,B09Y2K6RDP,2,"35 h battery, over‑ear"
+H09,B09Y55TKLQ,0,In‑ear earbuds
+H09,B0BMZFTYR9,0,In‑ear earbuds
+H09,B09BPCBXG2,1,Battery not listed
+H09,B0C2PMXT82,2,"60 h battery, over‑ear"
+H09,B0C5B1LW2Y,2,"22 h battery, over‑ear"
+H09,B09HDYLNRW,2,"50 h battery, over‑ear"
+H09,B07VX7V91Q,1,"Kids model, battery unknown"
+H09,B0BL7MWM65,0,In‑ear despite tag
+H09,B0BYZ6G769,0,"Earbud, not over‑ear"
+H09,B0C18NZCDW,1,"Form‑factor unclear, earbuds"
+H09,B09XWTCRB6,0,"Kids headphones, no long battery"
+H10,B09M79MQYD,2,"Exact model, perfect match"
+H10,B079MSMRDF,0,"Different model, lacks NC"
+H10,B09G8C91JY,0,"Wrong model, wrong type"
+H10,B07HQ7VRNG,1,"Older model, still similar"
+H10,B096WPKZNR,0,"Earbuds, not over-ear"
+H10,B096NCPQC2,0,"Wired, not wireless"
+H10,B0BWK6B2T4,0,"Different model, no NC"
+H10,B00FJISZMS,0,"Wrong model, wired"
+H10,B0BNC1QBH6,0,"Different model, no NC"
+H10,B01LXS5BXS,0,"Older model, not WH-1000XM4"
+H10,B07MPD5H48,0,Not Sony
+H10,B07QKX28XR,0,Not Sony
+H10,B09TKRCFQ3,0,Not Sony
+H10,B00NT08MAI,0,Not Sony
+H10,B07961C64Q,0,Not Sony
+H10,B08LMBJFGD,0,Not Sony
+H10,B09XHVWG64,0,Not Sony
+H10,B09YL6P4ZZ,0,Not Sony
+H11,B09CPTVJVP,2,"Fits price, wired, mic, NC"
+H11,B0BGNX8WXX,2,"Budget pack, good features"
+H11,B0B5Y4FVYY,1,"Disposable kids' model, lower quality"
+H11,B0BHWFTMGF,2,"Comfortable, good sound, within budget"
+H11,B0C6KS7XLT,2,"Value pack, strong bass"
+H11,B09SFZ4GW6,2,"Compact pack, noise blocking"
+H11,B09QPG1ZST,2,No mic but meets basics
+H11,B0C6M8K98D,2,"Standard earbuds, affordable"
+H11,B07XFFZT4M,1,"Large bulk lot, less convenient"
+H11,B0BZ49NHW2,2,"Feature‑rich, at price cap"
+H11,B08MDCT3T9,2,"Tangle‑free, solid sound"
+H11,B092MKW5CR,2,"Braided cable, strong bass"
+H11,B0C6B1B34G,2,"Apple‑MFi, good value"
+H11,B0C6XGLJT8,2,"Apple‑MFi, cheap pack"
+H11,B09NLZGYNV,2,"Magnetic, deep bass, good price"
+H12,B09L7YVTZ9,0,"over‑ear, not earbuds"
+H12,B09PN6YZVP,2,meets all criteria
+H12,B08S7167XT,2,meets all criteria
+H12,B07J9RXPY8,0,no noise cancelling
+H12,B08128X9M9,0,"over‑ear, not earbuds"
+H12,B06X3ZKHWY,2,meets all criteria
+H12,B0B1LLF4HM,2,meets all criteria
+H12,B09Y5GLSRJ,2,meets all criteria
+H12,B09MVR9NQ2,0,"neckband style, not earbuds"
+H12,B09Q376C6Z,0,price not under $100
+H12,B0B314Z5K7,2,meets all criteria
+H12,B0BM8TMYLV,2,meets all criteria
+H12,B0BRH3JTWJ,2,meets all criteria
+H12,B09QKF94X6,2,meets all criteria
+H12,B0953G76S7,2,meets all criteria
+H13,B0B3JT8SQN,0,"Bone‑conduction open‑ear, not earbuds"
+H13,B0C6GPRXNT,0,"Open‑ear bone conduction, not earbuds"
+H13,B0BT9V1P74,0,"Bone‑conduction open‑ear, not true earbuds"
+H13,B017KY2X5I,2,"In‑ear waterproof earbuds, suitable for swimming"
+H13,B0BB1F44HT,0,"Open‑ear bone conduction, not earbuds"
+H13,B09BZYBD5M,1,Waterproof earbuds but IP rating unclear for swimming
+H13,B0BRL5KJ96,0,No waterproof claim
+H13,B0C6FCJ9SM,0,"Open‑ear bone conduction, not earbuds"
+H13,B0BYZ6G769,0,"Over‑ear design, not earbuds"
+H13,B0BM4HVJ2T,0,"Open‑ear bone conduction, not earbuds"
+H13,B0C3R2WCKX,2,"True wireless earbuds, IPX7 waterproof"
+H13,B0BLNHCMS7,2,"True wireless earbuds, IPX7 waterproof"
+H13,B0BFR3QPWR,0,No waterproof specification
+H13,B0C4L8HX85,1,"IPX5 only, not suitable for full submersion"
+H13,B0BC8JS6L1,2,IPX7 waterproof true earbuds
+H13,B0B9XMKD4Y,2,"IPX7 waterproof earbuds with hooks, swim‑compatible"
+H13,B0C6KGG6N7,0,"Over‑ear style, not earbuds"
+H14,B09QZPX8D5,2,Meets volume limit requirement
+H14,B0BD8DTFC7,2,Meets volume limit requirement
+H14,B0BCVRB1TY,2,Meets volume limit requirement
+H14,B07W6KFH6J,2,Meets volume limit requirement
+H14,B0912H3T6T,2,Meets volume limit requirement
+H14,B098Q9PPVC,2,Meets volume limit requirement
+H14,B0C5R6LYKG,2,Meets volume limit requirement
+H14,B07VX7V91Q,2,Meets volume limit requirement
+H14,B0BHVDMGDX,2,Meets volume limit requirement
+H14,B009APBWD0,2,Meets volume limit requirement
+H14,B0B14M7THK,2,Meets volume limit requirement
+H14,B09WTY86N6,2,Meets volume limit requirement
+H14,B09J4QFYDR,2,Meets volume limit requirement
+H14,B0BF8JD579,2,Meets volume limit requirement
+H15,B0B9XMKD4Y,2,"Bluetooth, ear hooks for jogging, secure fit"
+H15,B07T7KVXJH,1,"Bluetooth sport earbuds, no explicit secure fit"
+H15,B0C6QK3VKY,1,"Bone‑conduction clip, not in‑ear, moderate fit"
+H15,B0B6PGDZCY,1,"Open‑ear bone conduction, stays on but not in‑ear"
+H15,B0BRL5KJ96,2,"Bluetooth, ear‑hooks/wrap‑around, designed for running"
+H15,B08PFMH5S9,1,"Bluetooth running earbuds, lacks hooks"
+H15,B0B5V5TG95,0,"Sleep headband, not a running headphone"
+H15,B0BVBDSFY9,0,"Over‑ear bone conduction, unsuitable for running"
+H15,B0BPY84R7W,1,"Bone‑conduction clip, no clear secure‑in‑ear design"
+H15,B08Y8VTQTC,1,"Bluetooth sport earbuds, no hooks"
+H15,B0BG4X3FRJ,1,"Basic Bluetooth earbuds, no secure fit feature"
+H15,B074F3YW3R,1,"High‑end sport earbuds, no explicit hooks"
+H15,B0C3R2WCKX,1,"Waterproof earbuds, lacks secure‑fit detail"
+H15,B086LL8V2G,1,"Sweat‑resistant earbuds, no ear‑hook or fin"
+H15,B0BLNHCMS7,1,"Sport earbuds, no secure‑fit mechanism"
+H15,B0BY3BXJG8,1,"Gaming‑oriented earbuds, no running‑fit feature"
+H15,B0C6P6RY6J,1,"Waterproof earbuds, missing secure‑fit info"
+H15,B0BJPWZP9N,2,"Bluetooth open‑ear with ear hook, stays in while running"

@@ -14,6 +14,51 @@ WEIGHTS = {
     "B": {"relevance": 0.30, "spec_fit": 0.25, "priority_fit": 0.15, "quality": 0.30, "popularity": 0.00},
 }
 GPU = re.compile(r"nvidia|geforce|rtx|gtx|radeon rx|radeon pro|quadro|arc a\d", re.I)
+
+# ---------- Step 8: CPU tiers and named brands/models ----------
+BEATS = re.compile(r"beats?\s+(?:intel\s+)?(?:core\s+)?i\d[\w-]*", re.I)  # "Ryzen 5 (Beats i7-10850H)" is still a Ryzen 5
+CPU_TIERS = [(re.compile(p, re.I), s, label) for p, s, label in [
+    (r"\bi9\b|core_i9|ryzen[ _]?9|\bm[123][ _]?(?:max|ultra)\b", 1.0, "top-tier CPU"),
+    (r"\bi7\b|core_i7|apple_ci7|ryzen[ _]?7|\bm[123][ _]?pro\b", 0.85, "fast CPU"),
+    (r"\bi5\b|core_i5|apple_ci5|corei5|ryzen[ _]?5|\bm[123]\b|apple_m[123]", 0.65, "mid-range CPU"),
+    (r"\bi3\b|core_i3|apple_ci3|ryzen[ _]?3", 0.35, "entry-level CPU"),
+    (r"celeron|pentium|athlon|atom|mediatek|snapdragon|\ba[46]-|a_series|amd_a|e[ _-]?series|3015e|3020e"
+     r"|n4\d{3}|n5\d{3}|\bn[12]00\b", 0.1, "basic CPU"),
+]]
+MODEL_BRANDS = {
+    "macbook": "apple", "airpods": "apple", "imac": "apple", "legion": "lenovo", "thinkpad": "lenovo",
+    "ideapad": "lenovo", "yoga": "lenovo", "zenbook": "asus", "vivobook": "asus", "rog": "asus", "tuf": "asus",
+    "pavilion": "hp", "envy": "hp", "omen": "hp", "victus": "hp", "spectre": "hp", "elitebook": "hp",
+    "xps": "dell", "inspiron": "dell", "alienware": "dell", "latitude": "dell", "surface": "microsoft",
+    "galaxy": "samsung", "quietcomfort": "bose", "nitro": "acer", "aspire": "acer", "swift": "acer",
+    "predator": "acer",
+}
+UNIT = re.compile(r"^\d+(?:\.\d+)?(?:gb|tb|lbs?|hz|k|in|inch|mah|mm|hrs?|h|ms|db|w)$")
+
+
+def cpu_tier(r):
+    """(score 0-1, label) from the processor field, else the title. (None, None) if unknown."""
+    for text in (str(r.get("processor") or ""), str(r.get("title") or "")):
+        t = BEATS.sub("", text.lower())
+        for pat, score, label in CPU_TIERS:
+            if pat.search(t):
+                return score, label
+    return None, None
+
+
+def named(text, brands):
+    """Brands and model terms the shopper named. 'sony wh-1000xm4' -> ({'sony'}, ['wh1000xm4'])."""
+    words = re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", (text or "").lower())
+    found = {b for b in brands if len(b) >= 2 and re.search(r"(?<![a-z0-9])" + re.escape(b) + r"(?![a-z0-9])", text or "")}
+    terms = []
+    for w in words:
+        if w in MODEL_BRANDS:
+            found.add(MODEL_BRANDS[w])
+            terms.append(w)
+        elif len(w) >= 4 and re.search(r"[a-z]", w) and re.search(r"\d", w) and not UNIT.match(w):
+            terms.append(w.replace("-", ""))
+    return found, terms
+
 KEYWORDS = {
     "durability": re.compile(r"waterproof|sweat[\s-]?proof|sweat[\s-]?resistant|\bipx?[4-8]\b|\bip[4-6]\d\b", re.I),
     "comfort": re.compile(r"comfortabl|ergonomic|memory[\s-]foam|cushion|lightweight|light[\s-]?weight", re.I),
@@ -125,7 +170,11 @@ def priority_fit(r, priorities, cat):
         elif p == "performance" and cat == "laptops":
             ram, sto = num(r["ram_gb"]), num(r["storage_gb"])
             gpu = bool(GPU.search(f"{r['gpu']} {r['title']}"))
-            parts.append(float(np.mean([clip01((ram or 0) / 16), clip01((sto or 0) / 512), 1.0 if gpu else 0.4])))
+            cpu, cpu_label = cpu_tier(r)
+            c = cpu if cpu is not None else 0.4
+            parts.append(float(np.mean([clip01((ram or 0) / 16), clip01((sto or 0) / 512), 1.0 if gpu else 0.4, c, c])))
+            if cpu is not None and cpu <= 0.35:
+                notes.append(cpu_label)  # Step 8: be honest about weak processors
         elif p == "battery":
             h = battery_hours(r["search_text"])
             if h:
@@ -149,6 +198,7 @@ def rank(cand, intent, cat, prior_mean, ranker="A", k=8, brand_cap=3):
     rel_max = cand["score"].max() or 1.0
     log_max = math.log1p(cand["num_ratings"].max()) or 1.0
     finals, whys = [], []
+    named_brands, terms = named(intent.get("text", ""), set(cand["brand"].astype(str).str.lower()))  # Step 8
     for _, r in cand.iterrows():
         sf, n1 = spec_fit(r, cons, cat)
         pf, n2 = priority_fit(r, pri, cat)
@@ -162,15 +212,18 @@ def rank(cand, intent, cat, prior_mean, ranker="A", k=8, brand_cap=3):
             "popularity": math.log1p(v) / log_max,
         }
         used = {c: x for c, x in comps.items() if x is not None and w[c] > 0}
-        finals.append(sum(w[c] * x for c, x in used.items()) / sum(w[c] for c in used))
-        notes = (n1 + n2)[:4] + [f"rated {r['avg_rating']:.1f} by {int(v):,} buyers"]
+        score = sum(w[c] * x for c, x in used.items()) / sum(w[c] for c in used)
+        title = re.sub(r"[\s-]", "", str(r["title"]).lower())
+        exact = bool(terms) and all(t.replace("-", "") in title for t in terms)
+        finals.append(score + (0.25 if exact else 0.0))  # Step 8: boost the exact model they named
+        notes = (["matches the model you named"] if exact else []) + (n1 + n2)[:4] + [f"rated {r['avg_rating']:.1f} by {int(v):,} buyers"]
         whys.append(" | ".join(notes))
     out = cand.assign(final=finals, why=whys).sort_values("final", ascending=False)
 
     chosen, counts, skipped = [], {}, []
     for i, r in out.iterrows():
         b = str(r["brand"]).lower()
-        if brand_cap and counts.get(b, 0) >= brand_cap:
+        if brand_cap and b not in named_brands and counts.get(b, 0) >= brand_cap:  # Step 8: no cap on named brands
             skipped.append(i)
             continue
         chosen.append(i)
