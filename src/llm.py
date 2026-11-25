@@ -50,7 +50,7 @@ def available():
     return [p for p in PROVIDERS if os.environ.get(p["key"])]
 
 
-def chat(messages, tools=None, temperature=0.2, timeout=30):
+def chat(messages, tools=None, temperature=0.2, timeout=8):
     """Send an OpenAI-style chat request. Returns (assistant_message_dict, provider_name)."""
     errors = []
     for p in available():
